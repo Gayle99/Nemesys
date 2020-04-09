@@ -1,0 +1,19 @@
+﻿@model ReportListViewModel
+
+<h1>Nemesys</h1>
+<h2>Showing @Model.TotalReports reports</h2>
+<div class="row">
+    @foreach (var report in Model.Reports)
+    {
+        <div class="card" style="width: 18rem;padding:20px; margin:20px;">
+            <img class="card-img-top" src="@report.ImageUrl" alt="Image for @report.Title" />
+            <div class="card-body">
+                <h3 class="card-title">@report.Title</h3>
+                <p class="sm all">@report.Status</p>
+                <p class="sm all">@report.Location</p>
+                <p class="sm all">@report.DateOfReport.ToShortDateString()</p>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@report.Id" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    }
+</div>
