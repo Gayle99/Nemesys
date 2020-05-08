@@ -45,14 +45,14 @@ namespace Nemesys.Controllers
 
         [HttpGet]
         //[Authorize]
-        public IActionResult Create()
+        public IActionResult CreateReport()
         {
             return View();
         }
 
         [HttpPost]
         //[Authorize]
-        public IActionResult Create([Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "Email", "Phone", "Upvotes", "ImageToUpload")] CreateReportViewModel newReport)
+        public IActionResult CreateReport([Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "Email", "Phone", "ImageToUpload")] CreateReportViewModel newReport)
         {
             if (ModelState.IsValid)
             {
@@ -96,6 +96,78 @@ namespace Nemesys.Controllers
             }
         }
 
+        [HttpGet]
+        //[Authorize]
+        public IActionResult EditReport(int id)
+        {
+            var report = _reportRepository.GetReportById(id);
+            if(report != null)
+            {
+                CreateReportViewModel model = new CreateReportViewModel()
+                {
+                    Id = report.Id,
+                    Title = report.Title,
+                    Location = report.Location,
+                    TypeOfHazard = report.TypeOfHazard,
+                    Description = report.Description,
+                    ImageUrl = report.ImageUrl
+                };
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            } 
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public IActionResult EditReport(int id, [Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "ImageToUpload", "ImageUrl")] CreateReportViewModel newReport)
+        {
+            //1. Check if the user has access to this blog post
+
+            //2. Check for incoming data integrity
+            if (id != newReport.Id)
+            {
+                return NotFound();
+            }
+
+            //3. Validate model
+            if (ModelState.IsValid)
+            {
+                if (newReport.ImageToUpload != null)
+                {
+                    string fileName = "";
+                    //At this point you should check size, extension etc...
+                    //.....
+                    //Then persist using a new name for consistency (e.g. new Guid)
+                    var extension = "." + newReport.ImageToUpload.FileName.Split('.')[newReport.ImageToUpload.FileName.Split('.').Length - 1];
+                    fileName = Guid.NewGuid().ToString() + extension;
+                    var path = Directory.GetCurrentDirectory() + "\\wwwroot\\images\\" + fileName;
+                    using (var bits = new FileStream(path, FileMode.Create))
+                    {
+                        newReport.ImageToUpload.CopyTo(bits);
+                    }
+
+                    newReport.ImageUrl = "/images/blogposts/" + fileName;
+                }
+
+                Report report = new Report()
+                {
+                    Id = newReport.Id,
+                    Title = newReport.Title,
+                    Location = newReport.Location,
+                    TypeOfHazard = newReport.TypeOfHazard,
+                    Description = newReport.Description,
+                    ImageUrl = newReport.ImageUrl
+                };
+
+                _reportRepository.UpdateReport(report);
+                return RedirectToAction("Index");
+            }
+            else
+                return View(newReport);
+        }
 
     }
 }

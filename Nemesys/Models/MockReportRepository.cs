@@ -91,7 +91,18 @@ namespace Nemesys.Models
 
         public void UpdateReport(Report report)
         {
-            throw new NotImplementedException();
+            var current = _reports.SingleOrDefault(x => x.Id == report.Id);
+
+            if(current != null)
+            {
+                current.Id = report.Id;
+                current.Title = report.Title;
+                current.Location = report.Location;
+                current.TypeOfHazard = report.TypeOfHazard;
+                current.Description = report.Description;
+                current.ImageUrl = report.ImageUrl;
+            }
+
         }
 
         public void EditReport(Report report)
