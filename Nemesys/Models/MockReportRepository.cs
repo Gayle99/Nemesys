@@ -38,6 +38,7 @@ namespace Nemesys.Models
                 new Report()
                 {
                     Id = 1,
+                    Title = "This is a report",
                     DateOfCreation = DateTime.Today,
                     Location = "Imsida",
                     DateSpotted = DateTime.Today,
@@ -46,13 +47,14 @@ namespace Nemesys.Models
                     Status = "Open",
                     Email = "user@email.com",
                     Phone = "21000000",
-                    ImageUrl = "",
+                    ImageUrl = "/images/img01.jpg",
                     Upvotes = 0
                 },
 
                 new Report()
                 {
                     Id = 2,
+                    Title = "This is another report",
                     DateOfCreation = DateTime.Today,
                     Location = "Imsida",
                     DateSpotted = DateTime.Today,
@@ -61,12 +63,13 @@ namespace Nemesys.Models
                     Status = "Open",
                     Email = "user2@email.com",
                     Phone = "21000001",
-                    ImageUrl = "",
+                    ImageUrl = "/images/img02.jpg",
                     Upvotes = 0
                 },
                 new Report()
                 {
                     Id = 3,
+                    Title = "You know what this is",
                     DateOfCreation = DateTime.Today,
                     Location = "Imsida",
                     DateSpotted = DateTime.Today,
@@ -75,7 +78,7 @@ namespace Nemesys.Models
                     Status = "Open",
                     Email = "user3@email.com",
                     Phone = "21000002",
-                    ImageUrl = "",
+                    ImageUrl = "/images/img03.jpg",
                     Upvotes = 0
                 }
             };
