@@ -14,8 +14,6 @@ namespace Nemesys.Controllers
 
         public IActionResult Index()
         {
-            
-
             var model = new ReportsListViewModel();
             model.Reports = _reportRepository.GetAllReports().OrderByDescending(x => x.Upvotes);
             model.ReportsCount = model.Reports.Count();
