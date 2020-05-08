@@ -3,6 +3,7 @@ namespace Nemesys.Models
 {
     public class Report
     {
+        public int Id { get; set; }
         public DateTime DateOfCreation { get; set; }
         public string Location { get; set; }
         public DateTime DateSpotted { get; set; }
