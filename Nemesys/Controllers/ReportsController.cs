@@ -11,6 +11,8 @@ namespace Nemesys.Controllers
         public IActionResult Index()
         {
             return View();
+
+            var model = new ReportsListViewModel();
         }
     }
 }
