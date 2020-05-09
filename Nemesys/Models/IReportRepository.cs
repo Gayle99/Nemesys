@@ -9,7 +9,6 @@ namespace Nemesys.Models
         Report GetReportById(int id);
         void UpdateReport(Report report);
         void CreateReport(Report report);
-        void EditReport(Report report);
         void DeleteReport(Report report);
     }
 }

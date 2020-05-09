@@ -39,54 +39,48 @@ namespace Nemesys.Models
                 {
                     Id = 1,
                     Title = "This is a report",
-                    DateOfCreation = DateTime.Today,
-                    Location = "Imsida",
-                    DateSpotted = DateTime.Today,
+                    DateOfCreation = DateTime.UtcNow,
+                    LastModified = DateTime.UtcNow,
+                    Location = "Faculty of ICT",
+                    DateSpotted = DateTime.UtcNow,
                     TypeOfHazard = "Unsafe act",
                     Description = "Something something",
                     Status = "Open",
-                    Email = "user@email.com",
-                    Phone = "21000000",
                     ImageUrl = "/images/img01.jpg",
-                    Upvotes = 0
                 },
 
                 new Report()
                 {
                     Id = 2,
                     Title = "This is another report",
-                    DateOfCreation = DateTime.Today,
-                    Location = "Imsida",
-                    DateSpotted = DateTime.Today,
+                    DateOfCreation = DateTime.UtcNow,
+                    LastModified = DateTime.UtcNow,
+                    Location = "Faculty of Engineering",
+                    DateSpotted = DateTime.UtcNow,
                     TypeOfHazard = "Structure",
                     Description = "Something something",
                     Status = "Open",
-                    Email = "user2@email.com",
-                    Phone = "21000001",
-                    ImageUrl = "/images/img02.jpg",
-                    Upvotes = 0
+                    ImageUrl = "/images/img02.jpg"
                 },
                 new Report()
                 {
                     Id = 3,
                     Title = "You know what this is",
-                    DateOfCreation = DateTime.Today,
-                    Location = "Imsida",
-                    DateSpotted = DateTime.Today,
+                    DateOfCreation = DateTime.UtcNow,
+                    LastModified = DateTime.UtcNow,
+                    Location = "Faculty of Faculties",
+                    DateSpotted = DateTime.UtcNow,
                     TypeOfHazard = "Unsafe act ",
                     Description = "Something something",
                     Status = "Open",
-                    Email = "user3@email.com",
-                    Phone = "21000002",
-                    ImageUrl = "/images/img03.jpg",
-                    Upvotes = 0
+                    ImageUrl = "/images/img03.jpg"
                 }
             };
         }
 
         public void DeleteReport(Report report)
         {
-            throw new NotImplementedException();
+            _reports.Remove(report);
         }
 
         public void UpdateReport(Report report)
@@ -97,6 +91,7 @@ namespace Nemesys.Models
             {
                 current.Id = report.Id;
                 current.Title = report.Title;
+                current.LastModified = DateTime.UtcNow;
                 current.Location = report.Location;
                 current.TypeOfHazard = report.TypeOfHazard;
                 current.Description = report.Description;
@@ -105,9 +100,5 @@ namespace Nemesys.Models
 
         }
 
-        public void EditReport(Report report)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

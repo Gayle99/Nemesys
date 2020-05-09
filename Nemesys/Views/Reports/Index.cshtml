@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h3 class="card-title">@report.Title</h3>
                 <p class="sm all">@report.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">@report.Upvotes</p>
+                <p class="sm all">@report.UsersWhoUpvoted.Count</p>
                 <a asp-controller="Home" asp-action="Details" asp-route-id="@report.Id" class="btn btn-primary">Details</a>
             </div>
         </div>
