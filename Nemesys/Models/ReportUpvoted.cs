@@ -8,6 +8,7 @@ namespace Nemesys.Models
 {
     public class ReportUpvoted
     {
+        public int Id { get; set; }
         public Report Report { get; set; }
         public IdentityUser User { get; set; }
 

@@ -43,7 +43,6 @@ namespace Nemesys.Models
 
             if (current != null)
             {
-                current.Id = report.Id;
                 current.Title = report.Title;
                 current.LastModified = DateTime.UtcNow;
                 current.Location = report.Location;
@@ -55,6 +54,19 @@ namespace Nemesys.Models
                 _applicationDbContext.SaveChanges();
             }
 
+        }
+
+        public void UpdateStatus(Report report)
+        {
+            var current = _applicationDbContext.Reports.SingleOrDefault(x => x.Id == report.Id);
+
+            if (current != null)
+            {
+                current.Status = report.Status;
+
+                _applicationDbContext.Entry(current).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _applicationDbContext.SaveChanges();
+            }
         }
     }
 }

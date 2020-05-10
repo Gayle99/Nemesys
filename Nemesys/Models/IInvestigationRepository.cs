@@ -11,7 +11,6 @@ namespace Nemesys.Models
         Investigation GetInvestigatiosById(int id);
         void UpdateInvestigation(Investigation investigation);
         void CreateInvestigation(Investigation investigation);
-        void EditInvestigation(Investigation investigation);
         void DeleteInvestigation(Investigation investigation);
     }
 }

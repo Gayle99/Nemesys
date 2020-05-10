@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,8 +12,7 @@ namespace Nemesys.Models
         public string Description { get; set; }
         public DateTime DateOfAction { get; set; }
         public DateTime LastModified { get; set; }
-        public string InvestigatorEmail{ get; set; }
-        public string InvestigatorDetails { get; set; }
+        public IdentityUser Investigator { get; set; }
 
     }
 }
