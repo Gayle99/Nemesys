@@ -53,5 +53,18 @@ namespace Nemesys.Models
                 return null;
             }
         }
+
+        public int TotalUpvotes(Report report)
+        {
+            var upvotes = _applicationDbContext.ReportUpvoted.Where(x => x.Report.Id == report.Id);
+            if(upvotes != null)
+            {
+                return upvotes.Count();
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
