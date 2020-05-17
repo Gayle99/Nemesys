@@ -11,7 +11,7 @@
                 <h3 class="card-title">@report.Report.Title</h3>
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all">@report.Upvotes</p>
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@report.Report.Id" class="btn btn-primary">Details</a>
+                <a asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" class="btn btn-primary">Details</a>
             </div>
         </div>
     }

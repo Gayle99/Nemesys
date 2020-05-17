@@ -47,6 +47,7 @@ namespace Nemesys.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
+            var model = new DetailsViewModel();
             var report = _reportRepository.GetReportById(id);
             if (report == null)
             {
@@ -54,7 +55,9 @@ namespace Nemesys.Controllers
             }
             else
             {
-                return View(report);
+                model.Report = report;
+                model.Upvotes = _reportUpvotedRepository.TotalUpvotes(report);
+                return View(model);
             }
         }
 

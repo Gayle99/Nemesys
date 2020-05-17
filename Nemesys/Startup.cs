@@ -59,7 +59,7 @@ namespace Nemesys
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._@+";
 
                 //options.SignIn.... and more
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+            }).AddDefaultUI().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
