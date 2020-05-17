@@ -9,7 +9,7 @@ namespace Nemesys.ViewModels
     public class ReportsListViewModel
     {
         public int ReportsCount { get; set; }
-        public IEnumerable<ReportWithUpvotes> ReportWithUpvotes { get; set; }
+        public List<ReportWithUpvotes> ReportWithUpvotes { get; set; }
     }
 
     public class ReportWithUpvotes

@@ -30,6 +30,7 @@ namespace Nemesys.Controllers
 
             var model = new ReportsListViewModel();
             var reports = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x));
+            model.ReportWithUpvotes = new List<ReportWithUpvotes>();
             foreach (var report in reports)
             {
                 ReportWithUpvotes temp = new ReportWithUpvotes()
@@ -37,8 +38,9 @@ namespace Nemesys.Controllers
                     Report = report,
                     Upvotes = _reportUpvotedRepository.TotalUpvotes(report)
                 };
-                model.ReportWithUpvotes.Append(temp);
+                model.ReportWithUpvotes.Add(temp);
             }
+            model.ReportsCount = model.ReportWithUpvotes.Count;
             return View(model);
         }
 
