@@ -15,7 +15,7 @@ namespace Nemesys.Models
             {
                 roleManager.CreateAsync(new IdentityRole("Reporter")).Wait();
                 roleManager.CreateAsync(new IdentityRole("Investigator")).Wait();
-                roleManager.CreateAsync(new IdentityRole("Admistrator")).Wait();
+                roleManager.CreateAsync(new IdentityRole("Administrator")).Wait();
             }
 
         }
@@ -26,16 +26,16 @@ namespace Nemesys.Models
             {
                 var reporter = new IdentityUser()
                 {
-                    Email = "a@b.c",
-                    NormalizedEmail = "A@B.C",
-                    UserName = "a@b.c",
-                    NormalizedUserName = "A@B.C",
+                    Email = "cc@b.c",
+                    NormalizedEmail = "CC@B.C",
+                    UserName = "cc@b.c",
+                    NormalizedUserName = "CC@B.C",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
                 };
 
-                IdentityResult result = userManager.CreateAsync(reporter, "R>v8XX").Result;
+                IdentityResult result = userManager.CreateAsync(reporter, "D4!z]Mqa").Result;
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(reporter, "Reporter").Wait();
