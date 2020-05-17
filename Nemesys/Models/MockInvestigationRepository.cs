@@ -25,27 +25,21 @@ namespace Nemesys.Models
                 {
                     Id = 1,
                     Description = "Description of 1",
-                    DateOfAction = DateTime.UtcNow,
-                    InvestigatorEmail = "a@b.c",
-                    InvestigatorDetails = "Investigation of 1"
+                    DateOfAction = DateTime.UtcNow
 
                 },
                 new Investigation()
                 {
                     Id = 2,
                     Description = "Description of 2",
-                    DateOfAction = DateTime.UtcNow,
-                    InvestigatorEmail = "a@bb.c",
-                    InvestigatorDetails = "Investigation of 2"
+                    DateOfAction = DateTime.UtcNow
 
                 },
                 new Investigation()
                 {
                     Id = 3,
                     Description = "Description of 3",
-                    DateOfAction = DateTime.UtcNow,
-                    InvestigatorEmail = "a@bbb.c",
-                    InvestigatorDetails = "Investigation of 3"
+                    DateOfAction = DateTime.UtcNow
 
                 }
 
