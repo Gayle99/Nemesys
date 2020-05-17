@@ -18,7 +18,7 @@ namespace Nemesys.Controllers
         private readonly ReportUpvotedRepository _reportUpvotedRepository;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ReportsController(IReportRepository reportRepository, IInvestigationRepository investigationRepository,ReportUpvotedRepository reportUpvotedRepository, UserManager<IdentityUser> userManager)
+        public ReportsController(IReportRepository reportRepository, IInvestigationRepository investigationRepository, ReportUpvotedRepository reportUpvotedRepository, UserManager<IdentityUser> userManager)
         {
             _reportRepository = reportRepository;
             _investigationRepository = investigationRepository;
@@ -27,10 +27,10 @@ namespace Nemesys.Controllers
         }
         public IActionResult Index()
         {
-            
+
             var model = new ReportsListViewModel();
             var reports = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x));
-            foreach(var report in reports)
+            foreach (var report in reports)
             {
                 ReportWithUpvotes temp = new ReportWithUpvotes()
                 {
@@ -114,7 +114,7 @@ namespace Nemesys.Controllers
         public IActionResult EditReport(int id)
         {
             var report = _reportRepository.GetReportById(id);
-            if(report != null)
+            if (report != null)
             {
                 CreateReportViewModel model = new CreateReportViewModel()
                 {
@@ -130,7 +130,7 @@ namespace Nemesys.Controllers
             else
             {
                 return RedirectToAction("Index");
-            } 
+            }
         }
 
         [HttpPost]
@@ -138,7 +138,7 @@ namespace Nemesys.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditReport(int id, [Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "ImageToUpload", "ImageUrl")] CreateReportViewModel newReport)
         {
-            
+
 
             //1. Check for incoming data integrity
             if (id != newReport.Id)
@@ -148,12 +148,12 @@ namespace Nemesys.Controllers
 
             //2. Check if the user has access to this blog post
             var existingReport = _reportRepository.GetReportById(id);
-            if(existingReport != null)
+            if (existingReport != null)
             {
                 var loggedIn = await _userManager.GetUserAsync(User);
-                if(loggedIn.Id == existingReport.CreatedBy.Id)
+                if (loggedIn.Id == existingReport.CreatedBy.Id)
                 {
-            //3. Validate model
+                    //3. Validate model
                     if (ModelState.IsValid)
                     {
                         if (newReport.ImageToUpload != null)
@@ -199,7 +199,7 @@ namespace Nemesys.Controllers
             {
                 return NotFound();
             }
-            
+
         }
 
         [HttpPost]
@@ -211,7 +211,7 @@ namespace Nemesys.Controllers
             if (report != null)
             {
                 var currentUser = await _userManager.GetUserAsync(User);
-                if(currentUser.Id == report.CreatedBy.Id)
+                if (currentUser.Id == report.CreatedBy.Id)
                 {
                     _reportRepository.DeleteReport(report);
                     return RedirectToAction("Index");
@@ -220,13 +220,13 @@ namespace Nemesys.Controllers
                 {
                     return Unauthorized();
                 }
-                
+
             }
             else
             {
                 return NotFound();
             }
-            
+
         }
 
         [HttpPost]
@@ -234,14 +234,15 @@ namespace Nemesys.Controllers
         public async Task<IActionResult> UpvoteReport(int reportId)
         {
             var report = _reportRepository.GetReportById(reportId);
-            if (report != null) {
+            if (report != null)
+            {
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null)
                 {
                     if (_reportUpvotedRepository.CheckIfUpvoted(report, user))
                     {
                         var upvote = _reportUpvotedRepository.GetUpvote(report, user);
-                        if(upvote != null)
+                        if (upvote != null)
                         {
                             _reportUpvotedRepository.RemoveUpvote(upvote);
                         }
@@ -258,7 +259,7 @@ namespace Nemesys.Controllers
                             User = user
                         };
                         _reportUpvotedRepository.AddUpvote(newUpvote);
-                        
+
                     }
                 }
                 else
@@ -272,7 +273,7 @@ namespace Nemesys.Controllers
             }
             return RedirectToAction("Details", report.Id);
         }
-        
+
         [HttpGet]
         [Authorize]
         public IActionResult CreateInvestigation(int reportId)
@@ -388,7 +389,7 @@ namespace Nemesys.Controllers
                 if (investigation != null)
                 {
                     var investigator = await _userManager.GetUserAsync(User);
-                    if(investigator.Id == investigation.Investigator.Id)
+                    if (investigator.Id == investigation.Investigator.Id)
                     {
                         Report update = new Report()
                         {
@@ -409,12 +410,12 @@ namespace Nemesys.Controllers
                     //If there is no investigation
                     return NotFound();
                 }
-                
+
             }
             else
             {
                 return NotFound();
             }
-        } 
+        }
     }
 }

@@ -32,6 +32,9 @@ namespace Nemesys
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IReportRepository, ReportRepository>();
+            services.AddTransient<IInvestigationRepository, InvestigationRepository>();
+            services.AddTransient<ReportUpvotedRepository, ReportUpvotedRepository>();
+
 
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))

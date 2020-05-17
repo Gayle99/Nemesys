@@ -56,7 +56,7 @@ namespace Nemesys.Models
 
         public int TotalUpvotes(Report report)
         {
-            var upvotes = _applicationDbContext.ReportUpvoted.Where(x => x.Report.Id == report.Id);
+            ReportUpvoted[] upvotes = _applicationDbContext.ReportUpvoted.Where(x => x.Report.Id == report.Id).ToArray();
             if(upvotes != null)
             {
                 return upvotes.Count();
