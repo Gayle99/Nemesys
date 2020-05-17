@@ -1,4 +1,5 @@
-﻿using Nemesys.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using Nemesys.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,11 @@ namespace Nemesys.Models
                 _applicationDbContext.Entry(current).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _applicationDbContext.SaveChanges();
             }
+        }
+
+        public Report[] GetReportsByUser(IdentityUser user){
+            Report[] reports = _applicationDbContext.Reports.Where(x => x.CreatedBy.Id.Equals(user.Id)).ToArray();
+            return reports;
         }
     }
 }
