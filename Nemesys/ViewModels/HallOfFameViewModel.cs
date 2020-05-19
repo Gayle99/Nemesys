@@ -15,6 +15,8 @@ namespace Nemesys.ViewModels
     public class HighestUpvotedReport
     {
         public IdentityUser User { get; set; }
+        public int Count { get; set; }
         public Report HighestReport { get; set; }
     }
+
 }

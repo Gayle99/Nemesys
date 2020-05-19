@@ -74,5 +74,17 @@ namespace Nemesys.Models
             Report[] reports = _applicationDbContext.Reports.Where(x => x.CreatedBy.Id.Equals(user.Id)).ToArray();
             return reports;
         }
+
+        public IEnumerable<Report> GetReportsThisYear()
+        {
+            return _applicationDbContext.Reports.Where(x => x.DateOfCreation.Year == DateTime.UtcNow.Year);
+
+        }
+
+        public Report HighestReportOfUser(IdentityUser user)
+        {
+            Report[] reports = _applicationDbContext.Reports.Where(x => x.CreatedBy.Id.Equals(user.Id)).ToArray();
+            return null;
+        }
     }
 }

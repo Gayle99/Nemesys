@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nemesys.Models;
+using Nemesys.ViewModels;
 
 namespace Nemesys.Controllers
 {
@@ -25,8 +26,31 @@ namespace Nemesys.Controllers
 
         public IActionResult Index()
         {
+            var reportsThisYear = _reportRepository.GetReportsThisYear();
+            Dictionary<IdentityUser, int> userDictionary = new Dictionary<IdentityUser, int>();
+            foreach(Report report in reportsThisYear)
+            {
+                if (userDictionary.ContainsKey(report.CreatedBy))
+                {
+                    userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                }
+                else
+                {
+                    userDictionary.Add(report.CreatedBy, 1);
+                }
+            }
 
-            return View();
+            List<HighestUpvotedReport> model = new List<HighestUpvotedReport>();
+            foreach(var item in userDictionary)
+            {
+                HighestUpvotedReport temp = new HighestUpvotedReport()
+                {
+                    User = item.Key,
+                    Count = item.Value,
+                    HighestReport = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x)).ToArray()[0]
+                };
+            }
+            return View(model);
         }
     }
 }
