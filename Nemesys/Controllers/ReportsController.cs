@@ -64,14 +64,14 @@ namespace Nemesys.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         public IActionResult CreateReport()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateReport([Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "Email", "Phone", "ImageToUpload")] CreateReportViewModel newReport)
         {
@@ -117,7 +117,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         public IActionResult EditReport(int id)
         {
             var report = _reportRepository.GetReportById(id);
@@ -141,7 +141,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditReport(int id, [Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "ImageToUpload", "ImageUrl")] CreateReportViewModel newReport)
         {
@@ -210,7 +210,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteReport(int id)
         {
@@ -282,7 +282,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Investigation")]
         public IActionResult CreateInvestigation(int reportId)
         {
             CreateInvestigationViewModel model = new CreateInvestigationViewModel
@@ -293,7 +293,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Investigation")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateInvestigation([Bind("Id", "Description")] CreateInvestigationViewModel newInvestigation)
         {
@@ -320,7 +320,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Investigation")]
         public IActionResult EditInvestigation(int id)
         {
             var investigation = _investigationRepository.GetInvestigatiosById(id);
@@ -339,7 +339,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Investigation")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditInvestigation(int id, [Bind("Description")] CreateInvestigationViewModel editInvestigation)
         {
@@ -390,7 +390,7 @@ namespace Nemesys.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Investigation")]
         public async Task<IActionResult> ChangeStatus(int id, string status)
         {
             var report = _reportRepository.GetReportById(id);
