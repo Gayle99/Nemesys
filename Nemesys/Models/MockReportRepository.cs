@@ -100,5 +100,9 @@ namespace Nemesys.Models
 
         }
 
+        public IEnumerable<Report> GetReportsThisYear()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

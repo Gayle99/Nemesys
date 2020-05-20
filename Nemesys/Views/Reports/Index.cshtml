@@ -12,6 +12,11 @@
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all">@report.Upvotes</p>
                 <a asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" class="btn btn-primary">Details</a>
+                <a asp-controller="Reports" asp-action="EditReport" asp-route-id="@report.Report.Id" class="btn btn-primary">Edit</a>
+                <a asp-controller="Reports" asp-action="DeleteReport" asp-route-id="@report.Report.Id" class="btn btn-primary">Delete</a>
+                <a asp-controller="Reports" asp-action="UpvoteReport" asp-route-id="@report.Report.Id" class="btn btn-primary">Upvote</a>
+                <a asp-controller="Reports" asp-action="CreateInvestigation" asp-route-id="@report.Report.Id" class="btn btn-primary">Investigate</a>
+
             </div>
         </div>
     }

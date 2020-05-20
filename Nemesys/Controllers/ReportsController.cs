@@ -283,7 +283,11 @@ namespace Nemesys.Controllers
         [Authorize]
         public IActionResult CreateInvestigation(int reportId)
         {
-            return View();
+            CreateInvestigationViewModel model = new CreateInvestigationViewModel
+            {
+                Id = reportId
+            };
+            return View(reportId);
         }
 
         [HttpPost]
