@@ -289,7 +289,7 @@ namespace Nemesys.Controllers
             {
                 Id = reportId
             };
-            return View(reportId);
+            return View(model);
         }
 
         [HttpPost]
