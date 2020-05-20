@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Nemesys.Data;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Nemesys.Models
 
         public Report GetReportById(int reportId)
         {
-            return _applicationDbContext.Reports.FirstOrDefault(p => p.Id == reportId);
+            return _applicationDbContext.Reports.Include(x=>x.CreatedBy).FirstOrDefault(p => p.Id == reportId);
         }
 
         public void CreateReport(Report report)
