@@ -391,6 +391,7 @@ namespace Nemesys.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Investigation")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeStatus(int id, string status)
         {
             var report = _reportRepository.GetReportById(id);
