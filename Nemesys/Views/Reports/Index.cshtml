@@ -11,7 +11,7 @@
                 <h3 class="card-title">@report.Report.Title</h3>
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all">@report.Upvotes</p>
-                <form asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="post">
+                <form asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="get">
                     <button type="submit" class="btn btn-sm btn-primary">
                         Details
                     </button>
