@@ -21,8 +21,8 @@ namespace Nemesys
             using(var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                //try
-                //{
+                try
+                {
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
@@ -30,11 +30,12 @@ namespace Nemesys
                     DbInitalizer.SeedRoles(roleManager);
                     DbInitalizer.SeedUsers(userManager);
                     DbInitalizer.SeedData(userManager, context);
-                //}
-                //catch(Exception e)
-                //{
-                    //logging
-                //}
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occured at the seeding stage");
+                }
                 host.Run();
             }
         }

@@ -33,14 +33,14 @@ namespace Nemesys
         {
             services.AddTransient<IReportRepository, ReportRepository>();
             services.AddTransient<IInvestigationRepository, InvestigationRepository>();
+            services.AddTransient<IPromotionRepository, PromoteRepository>();
             services.AddTransient<ReportUpvotedRepository, ReportUpvotedRepository>();
-
 
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
            );
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 //Password policy
                 options.Password.RequireDigit = true;
@@ -59,7 +59,8 @@ namespace Nemesys
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._@+";
 
                 //options.SignIn.... and more
-            }).AddDefaultUI().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
+            }).AddDefaultUI().AddDefaultTokenProviders().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
