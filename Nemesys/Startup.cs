@@ -34,6 +34,7 @@ namespace Nemesys
             services.AddTransient<IReportRepository, ReportRepository>();
             services.AddTransient<IInvestigationRepository, InvestigationRepository>();
             services.AddTransient<ReportUpvotedRepository, ReportUpvotedRepository>();
+            services.AddTransient<IPromotionRepository, PromoteRepository>();
 
 
             services.AddDbContext<ApplicationDbContext>(options =>
