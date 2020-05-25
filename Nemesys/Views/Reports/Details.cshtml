@@ -35,9 +35,14 @@
             }
             if (User.IsInRole("Investigator"))
             {
-                <form asp-controller="Reports" asp-action="CreateInvestigation" asp-route-id="@Model.Report.Id" method="post">
+                <form asp-controller="Reports" asp-action="CreateInvestigation" asp-route-id="@Model.Report.Id" method="get">
                     <button type="submit" class="btn btn-sm btn-primary">
-                        Investigate
+                        Create Investigation
+                    </button>
+                </form>
+                <form asp-controller="Reports" asp-action="EditInvestigation" asp-route-id="@Model.Report.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        Edit Investigation
                     </button>
                 </form>
             }

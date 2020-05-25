@@ -16,7 +16,8 @@
                         Details
                     </button>
                 </form>
-                <form asp-controller="Reports" asp-action="UpvoteReport" asp-route-id="@report.Report.Id" method="post">
+                <form asp-controller="Reports" asp-action="UpvoteReport" method="post">
+                    <input id="reportId" name="reportId" type="hidden" value="@report.Report.Id"/>
                     <button type="submit" class="btn btn-sm btn-primary">
                         Upvote
                     </button>
