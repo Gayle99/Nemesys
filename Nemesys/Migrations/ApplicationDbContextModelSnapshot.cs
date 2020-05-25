@@ -82,10 +82,6 @@ namespace Nemesys.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -137,8 +133,6 @@ namespace Nemesys.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -247,26 +241,6 @@ namespace Nemesys.Migrations
                     b.ToTable("Investigations");
                 });
 
-            modelBuilder.Entity("Nemesys.Models.Promote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Reason")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PromoteRequests");
-                });
-
             modelBuilder.Entity("Nemesys.Models.Report", b =>
                 {
                     b.Property<int>("Id")
@@ -333,13 +307,6 @@ namespace Nemesys.Migrations
                     b.ToTable("ReportUpvoted");
                 });
 
-            modelBuilder.Entity("Nemesys.Models.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -396,13 +363,6 @@ namespace Nemesys.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Investigator")
                         .WithMany()
                         .HasForeignKey("InvestigatorId");
-                });
-
-            modelBuilder.Entity("Nemesys.Models.Promote", b =>
-                {
-                    b.HasOne("Nemesys.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Nemesys.Models.Report", b =>

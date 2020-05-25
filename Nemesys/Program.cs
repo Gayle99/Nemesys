@@ -23,8 +23,8 @@ namespace Nemesys
             {
                 var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
                 var services = scope.ServiceProvider;
-                try
-                {
+                //try
+                //{
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
@@ -32,6 +32,7 @@ namespace Nemesys
                     DbInitalizer.SeedRoles(roleManager);
                     DbInitalizer.SeedUsers(userManager);
                     DbInitalizer.SeedData(userManager, context);
+<<<<<<< HEAD
 
                     logger.Debug("init main");
                     CreateHostBuilder(args).Build().Run();
@@ -40,6 +41,13 @@ namespace Nemesys
                 {
                     logger.Error(e, "An unexpected error occured during the seeding stage!");
                 }
+=======
+                //}
+                //catch(Exception e)
+                //{
+                    //logging
+                //}
+>>>>>>> parent of 398d708... Added ability to promote - note that there is an issue with seeding (roles are not seeding)
                 host.Run();
             }
         }

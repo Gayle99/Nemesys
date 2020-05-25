@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Nemesys.Models
 {
-    public class DbInitalizer 
+    public class DbInitalizer
     {
-
         public static void SeedRoles(RoleManager<IdentityRole> roleManager)
         {
             if (!roleManager.Roles.Any())
