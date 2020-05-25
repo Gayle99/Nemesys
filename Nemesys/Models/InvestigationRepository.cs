@@ -37,6 +37,11 @@ namespace Nemesys.Models
             return _applicationDbContext.Investigations.FirstOrDefault(x => x.Id == id);
         }
 
+        public Investigation GetInvestigationByReportId(Report report)
+        {
+            return _applicationDbContext.Investigations.FirstOrDefault(x => x.ReportId == report.Id);
+        }
+
         public void UpdateInvestigation(Investigation investigation)
         {
             var current = _applicationDbContext.Investigations.SingleOrDefault(x => x.Id == investigation.Id);

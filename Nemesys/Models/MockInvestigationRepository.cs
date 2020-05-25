@@ -76,5 +76,10 @@ namespace Nemesys.Models
         {
             throw new NotImplementedException();
         }
+
+        public Investigation GetInvestigationByReportId(Report report)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
