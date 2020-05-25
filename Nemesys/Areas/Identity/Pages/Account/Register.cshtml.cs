@@ -75,6 +75,7 @@ namespace Nemesys.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                await _userManager.AddToRoleAsync(user, "Reporter");
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
