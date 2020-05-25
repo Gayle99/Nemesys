@@ -17,5 +17,6 @@ namespace Nemesys.Data
         public DbSet<Report> Reports { get; set; }
         public DbSet<Investigation> Investigations { get; set; }
         public DbSet<ReportUpvoted> ReportUpvoted { get; set; }
+        public DbSet<Promote> PromoteRequests { get; set; }
     }
 }
