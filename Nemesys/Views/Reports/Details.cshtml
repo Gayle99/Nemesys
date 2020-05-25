@@ -10,7 +10,7 @@
         <div class="card-body">
             <h3 class="card-title">@Model.Report.Title</h3>
             <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
-            <p class="sm all">Data Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+            <p class="sm all">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
             <p class="sm all">Status: @Model.Report.Status</p>
             <p class="sm all">Location: @Model.Report.Location</p>
             <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
@@ -44,11 +44,20 @@
                     </button>
                 </form>
                 <form asp-controller="Reports" asp-action="EditInvestigation" asp-route-id="@Model.Report.Id" method="post">
+                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
                     <button type="submit" class="btn btn-sm btn-primary">
                         Edit Investigation
                     </button>
                 </form>
             }
         }
+    </div>
+    <div class="card" style="width: 18rem;padding:20px; margin:20px;">
+        <div class="card-body">
+            <h3 class="card-title">Current Investigation</h3>
+            <p class="sm all">Created By: @Model.Investigation.Investigator.Email</p>
+            <p class="sm all">Date Created: @Model.Investigation.DateOfAction</p>
+            <p class="sm all">@Model.Investigation.Description</p>
+        </div>
     </div>
 </div>
