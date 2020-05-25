@@ -19,22 +19,23 @@ namespace Nemesys.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
 
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IPromotionRepository promotionRepository)
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IPromotionRepository promotionRepository, RoleManager<IdentityRole> roleManager)
         {
             _signinManager = signInManager;
             _userManager = userManager;
             _promotionRepository = promotionRepository;
-        }
+            _roleManager = roleManager;
+    }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Reporter")]
         public IActionResult PromoteRequest()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles= "Reporter")]
         public async Task<IActionResult> PromoteRequest([Bind("Reason")] PromoteViewModel promoteViewModel)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -60,12 +61,13 @@ namespace Nemesys.Controllers
             }
             else
             {
-                return RedirectToAction("PromoteRequest");
+                return RedirectToAction("ExistingRequest");
             }
 
         }
 
         [HttpGet]
+        [Authorize(Roles="Reporter")]
         public IActionResult ExistingRequest()
         {
             return View();
@@ -91,6 +93,21 @@ namespace Nemesys.Controllers
             }
 
             var requests = _promotionRepository.GetAllPromotionRequests();
+
+            bool remainingApplications = true;
+            while (remainingApplications)
+            {
+                Promote request = _promotionRepository.GetUserById(id);
+                if (request != null)
+                {
+                    _promotionRepository.DeleteRequest(request);
+                }
+                else
+                {
+                    remainingApplications = false;
+                }
+            }
+
             return View(requests.ToList());
         }
 
