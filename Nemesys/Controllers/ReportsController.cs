@@ -373,7 +373,7 @@ namespace Nemesys.Controllers
 
                     Investigation investigation = new Investigation()
                     {
-                        Id = newInvestigation.Id,
+                        ReportId = newInvestigation.Id,
                         Investigator = await _userManager.GetUserAsync(User),
                         DateOfAction = DateTime.UtcNow,
                         LastModified = DateTime.UtcNow,

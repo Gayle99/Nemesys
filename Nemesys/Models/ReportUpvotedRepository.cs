@@ -19,13 +19,13 @@ namespace Nemesys.Models
         public bool CheckIfUpvoted(Report report, IdentityUser user)
         {
             var upvote = _applicationDbContext.ReportUpvoted.Where(x => x.Report.Id == report.Id &&  x.User.Id == user.Id);
-            if(upvote != null)
+            if(upvote == null)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 

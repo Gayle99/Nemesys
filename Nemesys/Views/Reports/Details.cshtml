@@ -22,12 +22,14 @@
         {
             if (UserManager.GetUserAsync(User).Result.Id == Model.Report.CreatedBy.Id)
             {
-                <form asp-controller="Reports" asp-action="EditReport" asp-route-id="@Model.Report.Id" method="post">
+                <form asp-controller="Reports" asp-action="EditReport" method="get">
+                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
                     <button type="submit" class="btn btn-sm btn-primary">
                         Edit
                     </button>
                 </form>
-                <form asp-controller="Reports" asp-action="DeleteReport" asp-route-id="@Model.Report.Id" method="post">
+                <form asp-controller="Reports" asp-action="DeleteReport" method="post">
+                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
                     <button type="submit" class="btn btn-sm btn-primary">
                         Delete
                     </button>
@@ -35,7 +37,8 @@
             }
             if (User.IsInRole("Investigator"))
             {
-                <form asp-controller="Reports" asp-action="CreateInvestigation" asp-route-id="@Model.Report.Id" method="get">
+                <form asp-controller="Reports" asp-action="CreateInvestigation" method="get">
+                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
                     <button type="submit" class="btn btn-sm btn-primary">
                         Create Investigation
                     </button>
