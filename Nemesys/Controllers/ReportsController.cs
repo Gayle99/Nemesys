@@ -332,7 +332,7 @@ namespace Nemesys.Controllers
                 {
                     return NotFound();
                 }
-                return RedirectToAction("Details", report.Id);
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {
