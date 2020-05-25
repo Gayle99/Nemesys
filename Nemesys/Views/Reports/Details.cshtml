@@ -14,7 +14,11 @@
                 <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
                 <p class="sm all">@Model.Report.Description</p>
                 <p class="sm all">@Model.Upvotes</p>
-                <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
-            </div>
+                @if (User.IsInRole("Investigator"))
+                {
+                    <a asp-controller="Reports" asp-action="EditInvestigation" class="btn btn-primary">Edit Investigation</a>
+                }
+                    <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
+                </div>
         </div>
 </div>
