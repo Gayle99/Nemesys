@@ -1,34 +1,46 @@
-﻿@model DetailsViewModel
+﻿@using  Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model DetailsViewModel
 
 <h1>Nemesys</h1>
 <h2>Showing report details</h2>
 <div class="row">
-     <div class="card" style="width: 18rem;padding:20px; margin:20px;">
-            <img class="card-img-top" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
-            <div class="card-body">
-                <h3 class="card-title">@Model.Report.Title</h3>
-                <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
-                <p class="sm all">Data Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">Status: @Model.Report.Status</p>
-                <p class="sm all">Location: @Model.Report.Location</p>
-                <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
-                <p class="sm all">@Model.Report.Description</p>
-                <p class="sm all">@Model.Upvotes</p>
-                @if (User.IsInRole("Investigator"))
-                {
-                    <form asp-controller="Reports" asp-action="EditInvestigation" method="post">
-                        <button type="submit" class="btn btn-sm btn-primary">
-                            Edit Investigation
-                        </button>
-                    </form>
-                    <form asp-controller="Reports" asp-action="Change Status" method="post">
-                        <button type="submit" class="btn btn-sm btn-primary">
-                            Change Status
-                        </button>
-                    </form>
-                   
-                }
-                <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
-            </div>
+    <div class="card" style="width: 18rem;padding:20px; margin:20px;">
+        <img class="card-img-top" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
+        <div class="card-body">
+            <h3 class="card-title">@Model.Report.Title</h3>
+            <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
+            <p class="sm all">Data Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+            <p class="sm all">Status: @Model.Report.Status</p>
+            <p class="sm all">Location: @Model.Report.Location</p>
+            <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
+            <p class="sm all">@Model.Report.Description</p>
+            <p class="sm all">@Model.Upvotes</p>
+            <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
         </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (UserManager.GetUserAsync(User).Result.Id == Model.Report.CreatedBy.Id)
+            {
+                <form asp-controller="Reports" asp-action="EditReport" asp-route-id="@Model.Report.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        Edit
+                    </button>
+                </form>
+                <form asp-controller="Reports" asp-action="DeleteReport" asp-route-id="@Model.Report.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        Delete
+                    </button>
+                </form>
+            }
+            if (User.IsInRole("Investigator"))
+            {
+                <form asp-controller="Reports" asp-action="CreateInvestigation" asp-route-id="@Model.Report.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        Investigate
+                    </button>
+                </form>
+            }
+        }
+    </div>
 </div>
