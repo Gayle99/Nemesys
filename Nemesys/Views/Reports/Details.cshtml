@@ -16,9 +16,19 @@
                 <p class="sm all">@Model.Upvotes</p>
                 @if (User.IsInRole("Investigator"))
                 {
-                    <a asp-controller="Reports" asp-action="EditInvestigation" class="btn btn-primary">Edit Investigation</a>
+                    <form asp-controller="Reports" asp-action="EditInvestigation" method="post">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Edit Investigation
+                        </button>
+                    </form>
+                    <form asp-controller="Reports" asp-action="Change Status" method="post">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Change Status
+                        </button>
+                    </form>
+                   
                 }
-                    <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
-                </div>
+                <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
+            </div>
         </div>
 </div>
