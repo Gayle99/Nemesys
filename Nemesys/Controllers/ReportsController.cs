@@ -149,11 +149,11 @@ namespace Nemesys.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Reporter")]
-        public IActionResult EditReport(int id)
+        public IActionResult EditReport(int reportId)
         {
             try
             {
-                var report = _reportRepository.GetReportById(id);
+                var report = _reportRepository.GetReportById(reportId);
                 if (report != null)
                 {
                     CreateReportViewModel model = new CreateReportViewModel()
@@ -187,20 +187,15 @@ namespace Nemesys.Controllers
 
             try
             {
-                //1. Check for incoming data integrity
-                if (id != newReport.Id)
-                {
-                    return NotFound();
-                }
 
-                //2. Check if the user has access to this blog post
+                //1. Check if the user has access to this blog post
                 var existingReport = _reportRepository.GetReportById(id);
                 if (existingReport != null)
                 {
                     var loggedIn = await _userManager.GetUserAsync(User);
                     if (loggedIn.Id == existingReport.CreatedBy.Id)
                     {
-                        //3. Validate model
+                        //2. Validate model
                         if (ModelState.IsValid)
                         {
                             if (newReport.ImageToUpload != null)
@@ -217,10 +212,14 @@ namespace Nemesys.Controllers
 
                                 newReport.ImageUrl = "/images/reports/" + fileName;
                             }
+                            else
+                            {
+                                newReport.ImageUrl = existingReport.ImageUrl;
+                            }
 
                             Report report = new Report()
                             {
-                                Id = newReport.Id,
+                                Id = existingReport.Id,
                                 Title = newReport.Title,
                                 Location = newReport.Location,
                                 TypeOfHazard = newReport.TypeOfHazard,
@@ -382,7 +381,7 @@ namespace Nemesys.Controllers
                     };
 
                     _investigationRepository.CreateInvestigation(investigation);
-                    return RedirectToAction("Details", newInvestigation.Id);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
