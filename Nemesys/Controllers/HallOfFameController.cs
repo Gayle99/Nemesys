@@ -26,31 +26,39 @@ namespace Nemesys.Controllers
 
         public IActionResult Index()
         {
-            var reportsThisYear = _reportRepository.GetReportsThisYear();
-            Dictionary<IdentityUser, int> userDictionary = new Dictionary<IdentityUser, int>();
-            foreach(Report report in reportsThisYear)
+            try
             {
-                if (userDictionary.ContainsKey(report.CreatedBy))
+                var reportsThisYear = _reportRepository.GetReportsThisYear();
+                Dictionary<IdentityUser, int> userDictionary = new Dictionary<IdentityUser, int>();
+                foreach (Report report in reportsThisYear)
                 {
-                    userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                    if (userDictionary.ContainsKey(report.CreatedBy))
+                    {
+                        userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                    }
+                    else
+                    {
+                        userDictionary.Add(report.CreatedBy, 1);
+                    }
                 }
-                else
-                {
-                    userDictionary.Add(report.CreatedBy, 1);
-                }
-            }
 
-            List<HighestUpvotedReport> model = new List<HighestUpvotedReport>();
-            foreach(var item in userDictionary)
-            {
-                HighestUpvotedReport temp = new HighestUpvotedReport()
+                List<HighestUpvotedReport> model = new List<HighestUpvotedReport>();
+                foreach (var item in userDictionary)
                 {
-                    User = item.Key,
-                    Count = item.Value,
-                    HighestReport = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x)).ToArray()[0]
-                };
+                    HighestUpvotedReport temp = new HighestUpvotedReport()
+                    {
+                        User = item.Key,
+                        Count = item.Value,
+                        HighestReport = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x)).ToArray()[0]
+                    };
+                }
+                return View(model);
             }
-            return View(model);
+            catch (Exception e)
+            {
+                Console.WriteLine(DateTime.UtcNow + "\t" + e.Message);
+                return RedirectToAction("Error", "Home");
+            }
         }
     }
 }
