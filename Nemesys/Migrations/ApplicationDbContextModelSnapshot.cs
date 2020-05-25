@@ -241,6 +241,26 @@ namespace Nemesys.Migrations
                     b.ToTable("Investigations");
                 });
 
+            modelBuilder.Entity("Nemesys.Models.Promote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PromoteRequests");
+                });
+
             modelBuilder.Entity("Nemesys.Models.Report", b =>
                 {
                     b.Property<int>("Id")
@@ -363,6 +383,13 @@ namespace Nemesys.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Investigator")
                         .WithMany()
                         .HasForeignKey("InvestigatorId");
+                });
+
+            modelBuilder.Entity("Nemesys.Models.Promote", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Nemesys.Models.Report", b =>
