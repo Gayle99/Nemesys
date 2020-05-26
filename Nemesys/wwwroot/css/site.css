@@ -69,3 +69,23 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Reports */
+.reports {
+    display: inline-block;
+    padding-bottom: 5rem;
+}
+
+.card {
+    width: 30rem;
+    padding: 20px;
+    margin: 20px;
+}
+
+.card-image {
+    object-fit: cover;
+    float: left;
+    width: 10rem;
+    height: 20rem;
+}
+
