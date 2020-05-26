@@ -350,13 +350,19 @@ namespace Nemesys.Controllers
             try
             {
                 var report = _reportRepository.GetReportById(reportId);
-                //var investigation = _investigationRepository.Get
-                //if(Report)
-                CreateInvestigationViewModel model = new CreateInvestigationViewModel
+                var investigation = _investigationRepository.GetInvestigationByReportId(report);
+                if (investigation == null)
                 {
-                    Id = reportId
-                };
-                return View(model);
+                    CreateInvestigationViewModel model = new CreateInvestigationViewModel
+                    {
+                        Id = reportId
+                    };
+                    return View(model);
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
             }
             catch (Exception e)
             {
