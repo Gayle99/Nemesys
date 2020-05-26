@@ -12,3 +12,152 @@
 2020-05-26 20:30:10.9170 Info Adding target FileTarget(Name=ownFile-web)
 2020-05-26 20:30:10.9191 Info Closing old configuration.
 2020-05-26 20:30:11.0634 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 20:38:42.8403 Info Message Template Auto Format enabled
+2020-05-26 20:38:42.8841 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:38:43.0179 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:38:43.0223 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:38:43.1848 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 20:38:43.2302 Info Configuration initialized.
+2020-05-26 20:38:43.2347 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 20:38:47.5557 Info AppDomain Shutting down. Logger closing...
+2020-05-26 20:38:47.5722 Info Logger has been shut down.
+2020-05-26 20:39:18.6934 Info Message Template Auto Format enabled
+2020-05-26 20:39:18.7315 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:39:18.8102 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:39:18.8127 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:39:18.9091 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 20:39:18.9320 Info Configuration initialized.
+2020-05-26 20:39:18.9345 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 20:39:18.9682 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 20:39:18.9682 Info Message Template Auto Format enabled
+2020-05-26 20:39:18.9682 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:39:18.9700 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:39:18.9700 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:39:18.9726 Info Closing old configuration.
+2020-05-26 20:39:19.1092 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 20:39:29.3869 Info Message Template Auto Format enabled
+2020-05-26 20:39:29.4861 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:39:29.7139 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:39:29.7228 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:39:29.8538 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 20:39:29.9003 Info Configuration initialized.
+2020-05-26 20:39:29.9019 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 20:39:29.9277 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 20:39:29.9277 Info Message Template Auto Format enabled
+2020-05-26 20:39:29.9284 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:39:29.9300 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:39:29.9307 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:39:29.9317 Info Closing old configuration.
+2020-05-26 20:39:30.0992 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 20:51:33.7266 Info Message Template Auto Format enabled
+2020-05-26 20:51:33.7672 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:51:33.8389 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:51:33.8407 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:51:33.9189 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 20:51:33.9394 Info Configuration initialized.
+2020-05-26 20:51:33.9405 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 20:51:33.9575 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 20:51:33.9575 Info Message Template Auto Format enabled
+2020-05-26 20:51:33.9575 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 20:51:33.9588 Info Adding target FileTarget(Name=allfile)
+2020-05-26 20:51:33.9593 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 20:51:33.9593 Info Closing old configuration.
+2020-05-26 20:51:34.0293 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 21:01:32.4011 Info Message Template Auto Format enabled
+2020-05-26 21:01:32.4715 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 21:01:32.6008 Info Adding target FileTarget(Name=allfile)
+2020-05-26 21:01:32.6030 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 21:01:32.7838 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 21:01:32.8302 Info Configuration initialized.
+2020-05-26 21:01:32.8332 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 21:01:32.9315 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 21:01:32.9326 Info Message Template Auto Format enabled
+2020-05-26 21:01:32.9355 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 21:01:32.9400 Info Adding target FileTarget(Name=allfile)
+2020-05-26 21:01:32.9415 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 21:01:32.9432 Info Closing old configuration.
+2020-05-26 21:01:33.0858 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 21:04:22.8884 Info Message Template Auto Format enabled
+2020-05-26 21:04:23.0301 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 21:04:23.2256 Info Adding target FileTarget(Name=allfile)
+2020-05-26 21:04:23.2483 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 21:04:23.3900 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 21:04:23.4390 Info Configuration initialized.
+2020-05-26 21:04:23.4405 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 21:04:23.5175 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 21:04:23.5187 Info Message Template Auto Format enabled
+2020-05-26 21:04:23.5201 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 21:04:23.5228 Info Adding target FileTarget(Name=allfile)
+2020-05-26 21:04:23.5243 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 21:04:23.5273 Info Closing old configuration.
+2020-05-26 21:04:23.7015 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 22:02:06.3829 Info Message Template Auto Format enabled
+2020-05-26 22:02:06.4110 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:02:06.4556 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:02:06.4575 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:02:06.5275 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 22:02:06.5467 Info Configuration initialized.
+2020-05-26 22:02:06.5476 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 22:02:06.5637 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 22:02:06.5640 Info Message Template Auto Format enabled
+2020-05-26 22:02:06.5640 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:02:06.5640 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:02:06.5651 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:02:06.5651 Info Closing old configuration.
+2020-05-26 22:02:06.6510 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 22:19:31.3054 Info Message Template Auto Format enabled
+2020-05-26 22:19:31.3315 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:19:31.3812 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:19:31.3827 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:19:31.4565 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 22:19:31.4754 Info Configuration initialized.
+2020-05-26 22:19:31.4764 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 22:19:31.4967 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 22:19:31.4967 Info Message Template Auto Format enabled
+2020-05-26 22:19:31.4967 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:19:31.4984 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:19:31.4990 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:19:31.5000 Info Closing old configuration.
+2020-05-26 22:19:31.5559 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 22:21:45.9344 Info Message Template Auto Format enabled
+2020-05-26 22:21:45.9774 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:21:46.0532 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:21:46.0552 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:21:46.1266 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 22:21:46.1547 Info Configuration initialized.
+2020-05-26 22:21:46.1557 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 22:21:46.1715 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 22:21:46.1719 Info Message Template Auto Format enabled
+2020-05-26 22:21:46.1719 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:21:46.1719 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:21:46.1729 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:21:46.1729 Info Closing old configuration.
+2020-05-26 22:21:46.2369 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 22:22:09.8348 Info Message Template Auto Format enabled
+2020-05-26 22:22:09.8653 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:22:09.9200 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:22:09.9216 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:22:09.9871 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 22:22:10.0056 Info Configuration initialized.
+2020-05-26 22:22:10.0065 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 22:22:10.0220 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 22:22:10.0223 Info Message Template Auto Format enabled
+2020-05-26 22:22:10.0223 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:22:10.0223 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:22:10.0234 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:22:10.0234 Info Closing old configuration.
+2020-05-26 22:22:10.1007 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
+2020-05-26 22:31:24.4757 Info Message Template Auto Format enabled
+2020-05-26 22:31:24.5030 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:31:24.5610 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:31:24.5627 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:31:24.6304 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
+2020-05-26 22:31:24.6503 Info Configuration initialized.
+2020-05-26 22:31:24.6514 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
+2020-05-26 22:31:24.6707 Info Configuring from an XML element in /Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config...
+2020-05-26 22:31:24.6707 Info Message Template Auto Format enabled
+2020-05-26 22:31:24.6711 Info Loading assembly: NLog.Web.AspNetCore
+2020-05-26 22:31:24.6711 Info Adding target FileTarget(Name=allfile)
+2020-05-26 22:31:24.6711 Info Adding target FileTarget(Name=ownFile-web)
+2020-05-26 22:31:24.6725 Info Closing old configuration.
+2020-05-26 22:31:24.7290 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/nlog.config
