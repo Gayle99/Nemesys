@@ -255,11 +255,11 @@ namespace Nemesys.Controllers
         [HttpPost]
         [Authorize(Roles = "Reporter")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteReport(int id)
+        public async Task<IActionResult> DeleteReport(int reportId)
         {
             try
             {
-                var report = _reportRepository.GetReportById(id);
+                var report = _reportRepository.GetReportById(reportId);
                 if (report != null)
                 {
                     var currentUser = await _userManager.GetUserAsync(User);
@@ -346,6 +346,9 @@ namespace Nemesys.Controllers
         {
             try
             {
+                var report = _reportRepository.GetReportById(reportId);
+                //var investigation = _investigationRepository.Get
+                //if(Report)
                 CreateInvestigationViewModel model = new CreateInvestigationViewModel
                 {
                     Id = reportId
@@ -372,7 +375,7 @@ namespace Nemesys.Controllers
 
                     Investigation investigation = new Investigation()
                     {
-                        ReportId = newInvestigation.Id,
+                        AssociatedReport = _reportRepository.GetReportById(newInvestigation.Id),
                         Investigator = await _userManager.GetUserAsync(User),
                         DateOfAction = DateTime.UtcNow,
                         LastModified = DateTime.UtcNow,
