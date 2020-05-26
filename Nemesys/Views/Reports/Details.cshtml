@@ -10,7 +10,7 @@
         <div class="card-body">
             <h3 class="card-title">@Model.Report.Title</h3>
             <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
-            <p class="sm all">Data Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+            <p class="sm all">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
             <p class="sm all">Status: @Model.Report.Status</p>
             <p class="sm all">Location: @Model.Report.Location</p>
             <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
@@ -35,7 +35,7 @@
                     </button>
                 </form>
             }
-            if (User.IsInRole("Investigator"))
+            if (User.IsInRole("Investigator") && Model.Investigation == null)
             {
                 <form asp-controller="Reports" asp-action="CreateInvestigation" method="get">
                     <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
@@ -46,4 +46,32 @@
             }
         }
     </div>
+
+    @if (Model.Investigation != null)
+    {
+<div class="card" style="width: 18rem;padding:20px; margin:20px;">
+    <div class="card-body">
+        <h3 class="card-title">Current Investigation</h3>
+        <p class="sm all">Created By: @Model.Investigation.Investigator.Email</p>
+        <p class="sm all">Date Created: @Model.Investigation.DateOfAction</p>
+        <p class="sm all">@Model.Investigation.Description</p>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (UserManager.GetUserAsync(User).Result.Id == Model.Investigation.Investigator.Id)
+        {
+            <form asp-controller="Reports" asp-action="EditInvestigation" method="get">
+                <input id="investigationId" name="investigationId" type="hidden" value="@Model.Investigation.Id" />
+                <button type="submit" class="btn btn-sm btn-primary">
+                    Edit
+                </button>
+            </form>
+
+        }
+
+    }
+</div>
+
+    }
+     
 </div>

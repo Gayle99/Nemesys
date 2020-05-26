@@ -70,6 +70,8 @@ namespace Nemesys.Controllers
             {
                 var model = new DetailsViewModel();
                 var report = _reportRepository.GetReportById(id);
+                var investigation = _investigationRepository.GetInvestigationByReportId(report);
+
                 if (report == null)
                 {
                     return NotFound();
@@ -78,6 +80,7 @@ namespace Nemesys.Controllers
                 {
                     model.Report = report;
                     model.Upvotes = _reportUpvotedRepository.TotalUpvotes(report);
+                    model.Investigation = investigation;
                     return View(model);
                 }
             }

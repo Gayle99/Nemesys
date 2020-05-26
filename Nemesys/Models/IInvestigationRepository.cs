@@ -9,6 +9,7 @@ namespace Nemesys.Models
     {
         IEnumerable<Investigation> GetAllInvestigations();
         Investigation GetInvestigatiosById(int id);
+        Investigation GetInvestigationByReportId(Report report);
         void UpdateInvestigation(Investigation investigation);
         void CreateInvestigation(Investigation investigation);
         void DeleteInvestigation(Investigation investigation);
