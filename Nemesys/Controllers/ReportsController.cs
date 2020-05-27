@@ -409,16 +409,17 @@ namespace Nemesys.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Investigator")]
-        public IActionResult EditInvestigation(int id)
+        public IActionResult EditInvestigation(int investigationId)
         {
             try
             {
-                var investigation = _investigationRepository.GetInvestigatiosById(id);
+                var investigation = _investigationRepository.GetInvestigatiosById(investigationId);
                 if (investigation != null)
                 {
                     CreateInvestigationViewModel model = new CreateInvestigationViewModel()
                     {
-                        Description = investigation.Description,
+                        Id = investigationId,
+                        Description = investigation.Description
                     };
                     return View(model);
                 }
@@ -437,26 +438,20 @@ namespace Nemesys.Controllers
         [HttpPost]
         [Authorize(Roles = "Investigator")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditInvestigation(int id, [Bind("Description")] CreateInvestigationViewModel editInvestigation)
+        public async Task<IActionResult> EditInvestigation([Bind("Id","Description")] CreateInvestigationViewModel editInvestigation)
         {
             try
             {
 
 
-                //1. Check for incoming data integrity
-                if (id != editInvestigation.Id)
-                {
-                    return NotFound();
-                }
-
-                //2. Check if the user has access to this blog post
-                var existingInvestigation = _investigationRepository.GetInvestigatiosById(id);
+                //1. Check if the user has access to this blog post
+                var existingInvestigation = _investigationRepository.GetInvestigatiosById(editInvestigation.Id);
                 if (existingInvestigation != null)
                 {
                     var loggedIn = await _userManager.GetUserAsync(User);
                     if (loggedIn.Id == existingInvestigation.Investigator.Id)
                     {
-                        //3. Validate model
+                        //2. Validate model
                         if (ModelState.IsValid)
                         {
 
@@ -467,7 +462,7 @@ namespace Nemesys.Controllers
                             };
 
                             _investigationRepository.UpdateInvestigation(investigation);
-                            return RedirectToAction("Details", id);
+                            return RedirectToAction("Index");
                         }
                         else
                         {

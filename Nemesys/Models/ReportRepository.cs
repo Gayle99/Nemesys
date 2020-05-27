@@ -78,7 +78,7 @@ namespace Nemesys.Models
 
         public IEnumerable<Report> GetReportsThisYear()
         {
-            return _applicationDbContext.Reports.Where(x => x.DateOfCreation.Year == DateTime.UtcNow.Year);
+            return _applicationDbContext.Reports.Include(x=>x.CreatedBy).Where(x => x.DateOfCreation.Year == DateTime.UtcNow.Year);
 
         }
 
