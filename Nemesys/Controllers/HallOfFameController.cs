@@ -45,7 +45,8 @@ namespace Nemesys.Controllers
                     }
                 }
 
-                List<HighestUpvotedReport> model = new List<HighestUpvotedReport>();
+                var model = new HallOfFameViewModel();
+                model.HighestUpvotedReportList = new List<HighestUpvotedReport>();
                 foreach (var item in userDictionary)
                 {
                     HighestUpvotedReport temp = new HighestUpvotedReport()
@@ -54,6 +55,7 @@ namespace Nemesys.Controllers
                         Count = item.Value,
                         HighestReport = _reportRepository.GetAllReports().OrderByDescending(x => _reportUpvotedRepository.TotalUpvotes(x)).ToArray()[0]
                     };
+                    model.HighestUpvotedReportList.Add(temp);
                 }
                 return View(model);
             }
