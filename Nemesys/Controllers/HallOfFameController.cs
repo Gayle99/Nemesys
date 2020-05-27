@@ -32,9 +32,12 @@ namespace Nemesys.Controllers
                 Dictionary<IdentityUser, int> userDictionary = new Dictionary<IdentityUser, int>();
                 foreach (Report report in reportsThisYear)
                 {
-                    if (userDictionary.ContainsKey(report.CreatedBy))
+                    if (userDictionary.Count > 0)
                     {
-                        userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                        if (userDictionary.ContainsKey(report.CreatedBy))
+                        {
+                            userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                        }
                     }
                     else
                     {

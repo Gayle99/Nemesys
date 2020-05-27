@@ -1,4 +1,5 @@
-﻿using Nemesys.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Nemesys.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Nemesys.Models
 
         public Investigation GetInvestigationByReportId(Report report)
         {
-            return _applicationDbContext.Investigations.FirstOrDefault(x => x.AssociatedReport.Id == report.Id);
+            return _applicationDbContext.Investigations.Include(x=>x.Investigator).FirstOrDefault(x => x.AssociatedReport.Id == report.Id);
         }
 
         public void UpdateInvestigation(Investigation investigation)
