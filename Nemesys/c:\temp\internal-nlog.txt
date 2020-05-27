@@ -1,7 +1,0 @@
-2020-05-27 19:31:37.5344 Info Message Template Auto Format enabled
-2020-05-27 19:31:37.5916 Info Loading assembly: NLog.Web.AspNetCore
-2020-05-27 19:31:37.7875 Info Adding target FileTarget(Name=allfile)
-2020-05-27 19:31:37.7909 Info Adding target FileTarget(Name=ownFile-web)
-2020-05-27 19:31:37.9315 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/Gayle/Desktop/Nemesys/Nemesys/bin/Debug/netcoreapp3.1/NLog.config
-2020-05-27 19:31:37.9574 Info Configuration initialized.
-2020-05-27 19:31:37.9586 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.2.11786. Product version: 4.7.2+024896f64b840a743d3fd89e29c2186681e7795f. GlobalAssemblyCache: False
