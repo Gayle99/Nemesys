@@ -21,7 +21,7 @@ namespace Nemesys
             var host = CreateHostBuilder(args).Build();
             using(var scope = host.Services.CreateScope())
             {
-                var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+               // var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
                 var services = scope.ServiceProvider;
                 //try
                 //{
@@ -32,7 +32,7 @@ namespace Nemesys
                     DbInitalizer.SeedRoles(roleManager);
                     DbInitalizer.SeedUsers(userManager);
                     DbInitalizer.SeedData(userManager, context);
-                    logger.Debug("init main");
+                  //  logger.Debug("init main");
                     CreateHostBuilder(args).Build().Run();
                 //}
                 //catch(Exception e)

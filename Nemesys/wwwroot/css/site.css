@@ -27,7 +27,8 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif !important;
 }
 @media (min-width: 768px) {
   html {
@@ -87,4 +88,9 @@ body {
     float: left;
     width: 10rem;
     height: 20rem;
+}
+
+/* Home Page*/
+.home-container {
+    height: 100vh;
 }
