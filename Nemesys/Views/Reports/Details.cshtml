@@ -2,76 +2,78 @@
 @inject UserManager<IdentityUser> UserManager
 @model DetailsViewModel
 
-<h1>Nemesys</h1>
-<h2>Showing report details</h2>
-<div class="row reports">
-    <div class="card">
-        <img class="card-img-top" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
-        <div class="card-body">
-            <h3 class="card-title">@Model.Report.Title</h3>
-            <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
-            <p class="sm all">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
-            <p class="sm all">Status: @Model.Report.Status</p>
-            <p class="sm all">Location: @Model.Report.Location</p>
-            <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
-            <p class="sm all">@Model.Report.Description</p>
-            <p class="sm all">Likes: @Model.Upvotes</p>
-            <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
+    <div class="home-container">
+        <h1>Nemesys</h1>
+        <h2>Showing report details</h2>
+        <div class="row reports">
+            <div class="card">
+                <img class="card-img-top card-image" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
+                <div class="card-body">
+                    <h3 class="card-title">@Model.Report.Title</h3>
+                    <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
+                    <p class="sm all">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+                    <p class="sm all">Status: @Model.Report.Status</p>
+                    <p class="sm all">Location: @Model.Report.Location</p>
+                    <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
+                    <p class="sm all">@Model.Report.Description</p>
+                    <p class="sm all">Likes: @Model.Upvotes</p>
+                    <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Back</a>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (UserManager.GetUserAsync(User).Result.Id == Model.Report.CreatedBy.Id)
+                    {
+                        <form asp-controller="Reports" asp-action="EditReport" method="get">
+                            <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Edit
+                            </button>
+                        </form>
+                        <form asp-controller="Reports" asp-action="DeleteReport" method="post">
+                            <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Delete
+                            </button>
+                        </form>
+                    }
+                    if (User.IsInRole("Investigator") && Model.Investigation == null)
+                    {
+                        <form asp-controller="Reports" asp-action="CreateInvestigation" method="get">
+                            <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Create Investigation
+                            </button>
+                        </form>
+                    }
+                }
+            </div>
+
+            @if (Model.Investigation != null)
+            {
+                <div class="card" style="width: 18rem;padding:20px; margin:20px;">
+                    <div class="card-body">
+                        <h3 class="card-title">Current Investigation</h3>
+                        <p class="sm all">Created By: @Model.Investigation.Investigator.Email</p>
+                        <p class="sm all">Date Created: @Model.Investigation.DateOfAction</p>
+                        <p class="sm all">@Model.Investigation.Description</p>
+                    </div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (UserManager.GetUserAsync(User).Result.Id == Model.Investigation.Investigator.Id)
+                        {
+                            <form asp-controller="Reports" asp-action="EditInvestigation" method="get">
+                                <input id="investigationId" name="investigationId" type="hidden" value="@Model.Investigation.Id" />
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    Edit
+                                </button>
+                            </form>
+
+                        }
+
+                    }
+                </div>
+
+            }
+
         </div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            if (UserManager.GetUserAsync(User).Result.Id == Model.Report.CreatedBy.Id)
-            {
-                <form asp-controller="Reports" asp-action="EditReport" method="get">
-                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        Edit
-                    </button>
-                </form>
-                <form asp-controller="Reports" asp-action="DeleteReport" method="post">
-                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        Delete
-                    </button>
-                </form>
-            }
-            if (User.IsInRole("Investigator") && Model.Investigation == null)
-            {
-                <form asp-controller="Reports" asp-action="CreateInvestigation" method="get">
-                    <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        Create Investigation
-                    </button>
-                </form>
-            }
-        }
     </div>
-
-    @if (Model.Investigation != null)
-    {
-<div class="card" style="width: 18rem;padding:20px; margin:20px;">
-    <div class="card-body">
-        <h3 class="card-title">Current Investigation</h3>
-        <p class="sm all">Created By: @Model.Investigation.Investigator.Email</p>
-        <p class="sm all">Date Created: @Model.Investigation.DateOfAction</p>
-        <p class="sm all">@Model.Investigation.Description</p>
-    </div>
-    @if (User.Identity.IsAuthenticated)
-    {
-        if (UserManager.GetUserAsync(User).Result.Id == Model.Investigation.Investigator.Id)
-        {
-            <form asp-controller="Reports" asp-action="EditInvestigation" method="get">
-                <input id="investigationId" name="investigationId" type="hidden" value="@Model.Investigation.Id" />
-                <button type="submit" class="btn btn-sm btn-primary">
-                    Edit
-                </button>
-            </form>
-
-        }
-
-    }
-</div>
-
-    }
-     
-</div>
