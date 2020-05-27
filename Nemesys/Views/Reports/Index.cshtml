@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h3 class="card-title">@report.Report.Title</h3>
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">Likes: a@report.Upvotes</p>
+                <p class="sm all">Likes: @report.Upvotes</p>
                 <div class="row">
                     <form class="px-2" asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="get">
                         <button type="submit" class="btn btn-lg btn-primary btn-details">
