@@ -2,7 +2,7 @@
 
 <h1>Nemesys</h1>
 <h2>Showing @Model.ReportsCount reports</h2>
-<div class="row">
+<div class="row reports">
     @foreach (var report in Model.ReportWithUpvotes)
     {
         <div class="card" style="width: 18rem;padding:20px; margin:20px;">
@@ -11,17 +11,19 @@
                 <h3 class="card-title">@report.Report.Title</h3>
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all">@report.Upvotes</p>
-                <form asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="get">
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        Details
-                    </button>
-                </form>
-                <form asp-controller="Reports" asp-action="UpvoteReport" method="post">
-                    <input id="reportId" name="reportId" type="hidden" value="@report.Report.Id"/>
-                    <button type="submit" class="btn btn-sm btn-primary">
-                        Upvote
-                    </button>
-                </form>
+                <div class="row">
+                    <form class="px-2" asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="get">
+                        <button type="submit" class="btn btn-lg btn-primary btn-details">
+                            Details
+                        </button>
+                    </form>
+                    <form class="px-2" asp-controller="Reports" asp-action="UpvoteReport" method="post">
+                        <input id="reportId" name="reportId" type="hidden" value="@report.Report.Id" />
+                        <button type="submit" class="btn btn-lg btn-primary ">
+                            Upvote
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     }
