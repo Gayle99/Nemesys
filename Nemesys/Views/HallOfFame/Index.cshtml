@@ -1,5 +1,9 @@
 ﻿@model HallOfFameViewModel
 
+@{
+    ViewData["Title"] = "Hall of Fame";
+}
+
 <h2>Hall of Fame 2020</h2>
 
 <div class="row reports">
@@ -8,9 +12,9 @@
         <div class="card ">
             <img class="card-img-top card-image" src="@report.HighestReport.ImageUrl" alt="Image for @report.HighestReport.Title" />
             <div class="card-body">
-                <h3 class="card-title">@report.HighestReport.Title</h3>
+                <h3 class="card-title">User @report.HighestReport.CreatedBy.UserName's most upvoted report</h3>
                 <p class="sm all">@report.HighestReport.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">@report.HighestReport</p>
+                <p class="sm all">@report.HighestReport.Description</p>
                 <div class="row">
                     <form class="px-2" asp-controller="Reports" asp-action="Details" asp-route-id="@report.HighestReport.Id" method="get">
                         <button type="submit" class="btn btn-lg btn-primary btn-details">
@@ -19,8 +23,8 @@
                     </form>
                     <form class="px-2" asp-controller="Reports" asp-action="UpvoteReport" method="post">
                         <input id="reportId" name="reportId" type="hidden" value="@report.HighestReport.Id" />
-                        <button type="submit" class="btn btn-lg btn-primary ">
-                            Upvote
+                        <button class="like-button" type="submit">
+                            <img class="like-image" src="~/images/like.png" />
                         </button>
                     </form>
                 </div>

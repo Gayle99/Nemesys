@@ -1,5 +1,9 @@
 ﻿@model ReportsListViewModel
 
+@{
+    ViewData["Title"] = "Reports";
+}
+
 <h1>Nemesys</h1>
 <h2>Showing @Model.ReportsCount reports</h2>
 <div class="row reports">
@@ -19,8 +23,7 @@
                     </form>
                     <form class="px-2" asp-controller="Reports" asp-action="UpvoteReport" method="post">
                         <input id="reportId" name="reportId" type="hidden" value="@report.Report.Id" />
-                        <button type="submit" class="btn btn-lg btn-primary ">
-                            Upvote
+                        <button class="like-button" type="submit"><img class="like-image" src="~/images/like.png"/>
                         </button>
                     </form>
                 </div>
