@@ -57,6 +57,7 @@ namespace Nemesys.Controllers
                     };
                     model.HighestUpvotedReportList.Add(temp);
                 }
+                model.HighestUpvotedReportList.OrderByDescending(x => x.Count);
                 return View(model);
             }
             catch (Exception e)

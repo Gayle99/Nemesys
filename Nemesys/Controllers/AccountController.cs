@@ -25,7 +25,12 @@ namespace Nemesys.Controllers
             _userManager = userManager;
             _promotionRepository = promotionRepository;
             _roleManager = roleManager;
-    }
+        }
+
+        public IActionResult Index()
+        {
+            return RedirectToAction("Index", "Home");
+        }
 
         [HttpGet]
         [Authorize(Roles = "Reporter")]
