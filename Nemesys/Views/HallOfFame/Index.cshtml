@@ -4,27 +4,15 @@
     ViewData["Title"] = "Hall of Fame";
 }
 
-<h2 class="header-2">Hall of Fame 2020</h2>
-
-<div class="row reports">
-    @foreach (var report in Model.HighestUpvotedReportList)
-    {
-        <div class="card ">
-            <img class="card-img-top card-image" src="@report.HighestReport.ImageUrl" alt="Image for @report.HighestReport.Title" />
-            <div class="card-body">
-                <h3 class="card-title">User @report.HighestReport.CreatedBy.UserName's most upvoted report</h3>
-                <p class="sm all">@report.HighestReport.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">@report.HighestReport.Description</p>
-                <div class="row">
-                    <form class="px-2" asp-controller="Reports" asp-action="Details" asp-route-id="@report.HighestReport.Id" method="get">
-                        <button type="submit" class="btn btn-lg btn-primary btn-details">
-                            Details
-                        </button>
-                    </form>
-                    
+    <div class="home-container">
+        <h2 class="header-2">Hall of Fame 2020</h2>
+        @foreach (var user in Model.HighestUpvotedReportList)
+        {
+            <div class="content">
+                <div class="card card-body col-sm-12 text-center">
+                    <h3 class="card-title">@user.User.Email</h3>
+                    <p class="sm all">Number of reports: @user.Count</p>
                 </div>
-
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
