@@ -85,7 +85,7 @@ namespace Nemesys.Models
         public Report HighestReportOfUser(IdentityUser user)
         {
             Report[] reports = _applicationDbContext.Reports.Where(x => x.CreatedBy.Id.Equals(user.Id)).ToArray();
-            return null;
+            return reports[0];
         }
     }
 }
