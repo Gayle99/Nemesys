@@ -27,7 +27,7 @@
                     {
                         <form asp-controller="Reports" asp-action="EditReport" method="get">
                             <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary my-2">
                                 Edit
                             </button>
                         </form>
@@ -66,8 +66,14 @@
                         {
                             <form asp-controller="Reports" asp-action="EditInvestigation" method="get">
                                 <input id="investigationId" name="investigationId" type="hidden" value="@Model.Investigation.Id" />
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary my-2">
                                     Edit
+                                </button>
+                            </form>
+                            <form asp-controller="Reports" asp-action="ChangeStatus" method="get">
+                                <input id="investigationId" name="investigationId" type="hidden" value="@Model.Investigation.Id" />
+                                <button type="submit" class="btn btn-primary">
+                                    Change Status
                                 </button>
                             </form>
                         }
