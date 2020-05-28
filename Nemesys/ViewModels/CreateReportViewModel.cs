@@ -21,6 +21,8 @@ namespace Nemesys.ViewModels
         public string Location { get; set; }
 
         public DateTime DateSpotted { get; set; }
+
+        [Display(Name = "Type of Hazard")]
         public string TypeOfHazard { get; set; }
 
         [Required(ErrorMessage = "Report description is required")]
@@ -28,8 +30,10 @@ namespace Nemesys.ViewModels
         public string Description { get; set; }
         public string Status { get; set; }
         public string ImageUrl { get; set; }
+       
         [MaxFileSize(6 * 1024 *1024)]
         [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg"})]
+        [Display(Name = "Image to Upload")]
         public IFormFile ImageToUpload { get; set; }
 
     }
