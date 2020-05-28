@@ -4,8 +4,7 @@
     ViewData["Title"] = "Reports";
 }
 
-<h1>Nemesys</h1>
-<h2>Showing @Model.ReportsCount reports</h2>
+<h2 class="header-1">Showing @Model.ReportsCount reports</h2>
 <div class="row reports">
     @foreach (var report in Model.ReportWithUpvotes)
     {

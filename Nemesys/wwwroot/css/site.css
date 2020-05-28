@@ -72,6 +72,10 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.header-1, .header-2 {
+    text-align: center !important;
+}
+
 /* Reports */
 .reports {
     padding-bottom: 5rem;

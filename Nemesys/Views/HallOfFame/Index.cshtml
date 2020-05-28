@@ -4,7 +4,7 @@
     ViewData["Title"] = "Hall of Fame";
 }
 
-<h2>Hall of Fame 2020</h2>
+<h2 class="header-2">Hall of Fame 2020</h2>
 
 <div class="row reports">
     @foreach (var report in Model.HighestUpvotedReportList)
@@ -21,12 +21,7 @@
                             Details
                         </button>
                     </form>
-                    <form class="px-2" asp-controller="Reports" asp-action="UpvoteReport" method="post">
-                        <input id="reportId" name="reportId" type="hidden" value="@report.HighestReport.Id" />
-                        <button class="like-button" type="submit">
-                            <img class="like-image" src="~/images/like.png" />
-                        </button>
-                    </form>
+                    
                 </div>
 
             </div>

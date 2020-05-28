@@ -1,6 +1,10 @@
 ﻿@model CreateReportViewModel
 
-<h2>Edit Your Report</h2>
+@{
+    ViewData["Title"] = "Edit Report";
+}
+
+<h2 class="header-2">Edit Your Report</h2>
 
 <form asp-action="EditReport" method="post" role="form" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>

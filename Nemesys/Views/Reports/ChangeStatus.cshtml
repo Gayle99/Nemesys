@@ -1,6 +1,10 @@
 ﻿@model ChangeStatusViewModel
 
-<h2>Change Status</h2>
+@{
+    ViewData["Title"] = "Change Status";
+}
+
+<h2 class="header-2">Change Status</h2>
 
 <form asp-action="ChangeStatus" method="post" role="form" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
