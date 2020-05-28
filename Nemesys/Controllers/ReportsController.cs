@@ -130,7 +130,7 @@ namespace Nemesys.Controllers
                         DateSpotted = newReport.DateSpotted,
                         TypeOfHazard = newReport.TypeOfHazard,
                         Description = newReport.Description,
-                        Status = newReport.Status,
+                        Status = "Open",
                         ImageUrl = "/images/" + fileName,
 
                     };
