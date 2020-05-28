@@ -14,6 +14,7 @@
                 <h3 class="card-title">@report.Report.Title</h3>
                 <p class="sm all">@report.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all">Likes: @report.Upvotes</p>
+                <p class="sm all">Status: @report.Report.Status</p>
                 <div class="row">
                     <form class="px-2" asp-controller="Reports" asp-action="Details" asp-route-id="@report.Report.Id" method="get">
                         <button type="submit" class="btn btn-lg btn-primary btn-details">
@@ -22,7 +23,8 @@
                     </form>
                     <form class="px-2" asp-controller="Reports" asp-action="UpvoteReport" method="post">
                         <input id="reportId" name="reportId" type="hidden" value="@report.Report.Id" />
-                        <button class="like-button" type="submit"><img class="like-image" src="~/images/like.png"/>
+                        <button class="like-button" type="submit">
+                            <img class="like-image" src="~/images/like.png" />
                         </button>
                     </form>
                 </div>
