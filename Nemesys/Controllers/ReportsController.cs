@@ -545,7 +545,7 @@ namespace Nemesys.Controllers
                                     var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                                     var response = await client.SendEmailAsync(msg);
                                 }
-                                return RedirectToAction("Details", id);
+                                return RedirectToAction("Error", "Home");
                             }
                             else
                             {
@@ -554,20 +554,20 @@ namespace Nemesys.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Details", id);
+                            return RedirectToAction("Error", "Home");
                         }
 
                     }
                     else
                     {
                         //If there is no investigation
-                        return NotFound();
+                        return RedirectToAction("Error", "Home");
                     }
 
                 }
                 else
                 {
-                    return NotFound();
+                    return RedirectToAction("Error", "Home");
                 }
             }
             catch (Exception e)

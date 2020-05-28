@@ -36,7 +36,11 @@ namespace Nemesys.Controllers
                     {
                         if (userDictionary.ContainsKey(report.CreatedBy))
                         {
-                            userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy]++;
+                            userDictionary[report.CreatedBy] = userDictionary[report.CreatedBy] + 1;
+                        }
+                        else
+                        {
+                            userDictionary.Add(report.CreatedBy, 1);
                         }
                     }
                     else
