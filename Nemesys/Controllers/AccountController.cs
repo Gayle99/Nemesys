@@ -36,6 +36,7 @@ namespace Nemesys.Controllers
 
         [HttpPost]
         [Authorize(Roles= "Reporter")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> PromoteRequest([Bind("Reason")] PromoteViewModel promoteViewModel)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -83,6 +84,7 @@ namespace Nemesys.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult RequestList(string id)
         {
             IdentityUser user = _promotionRepository.GetUserById(id).User;
@@ -113,6 +115,7 @@ namespace Nemesys.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteRequest(int id)
         {
             Promote request = _promotionRepository.GetRequestById(id);

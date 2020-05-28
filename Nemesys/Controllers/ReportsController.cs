@@ -292,6 +292,7 @@ namespace Nemesys.Controllers
 
         [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpvoteReport(int reportId)
         {
             try
