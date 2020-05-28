@@ -11,5 +11,6 @@ namespace Nemesys.Models
         void CreateReport(Report report);
         void DeleteReport(Report report);
         IEnumerable<Report> GetReportsThisYear();
+        public void UpdateStatus(Report report);
     }
 }

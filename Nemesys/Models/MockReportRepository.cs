@@ -104,5 +104,10 @@ namespace Nemesys.Models
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateStatus(Report report)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

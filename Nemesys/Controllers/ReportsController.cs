@@ -500,7 +500,7 @@ namespace Nemesys.Controllers
                 var report = _reportRepository.GetReportById(id);
                 if (report != null)
                 {
-                    var investigation = _investigationRepository.GetInvestigatiosById(id);
+                    var investigation = _investigationRepository.GetInvestigationByReportId(report);
                     if (investigation != null)
                     {
                         string status = null;
@@ -532,7 +532,7 @@ namespace Nemesys.Controllers
                                     Status = status
                                 };
 
-                                _reportRepository.UpdateReport(update);
+                                _reportRepository.UpdateStatus(update);
 
                                 if (status.Equals("Closed"))
                                 {
@@ -546,7 +546,7 @@ namespace Nemesys.Controllers
                                     var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                                     var response = await client.SendEmailAsync(msg);
                                 }
-                                return RedirectToAction("Error", "Home");
+                                return RedirectToAction("Index");
                             }
                             else
                             {

@@ -73,11 +73,10 @@
                             <form asp-controller="Reports" asp-action="ChangeStatus" method="post" role="form" enctype="multipart/form-data">
                                 <div asp-validation-summary="All" class="text-danger"></div>
 
-                                <input id="id" type="hidden" class="form-control" value="@Model.Report.Id" />
+                                <input id="id" name="id" type="hidden" class="form-control" value="@Model.Report.Id" />
                                 <div class="form-group">
-                                    <label id="option" name="option" for="option" class="col-md-2"></label>
                                     <div class="col-md-5">
-                                        <select>
+                                        <select id="option" name="option">
                                             <option value="1">Open</option>
                                             <option value="2">Closed</option>
                                             <option value="3">Being investigation</option>
