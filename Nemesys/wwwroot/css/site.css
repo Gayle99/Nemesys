@@ -117,8 +117,7 @@ body {
     text-shadow: 0px 0px 0px transparent;
     display: block;
     float: right;
-    padding-left: 12.5rem;
-    width: 10%;
+    padding-left: 14rem;
 }
 
 .like-button:hover {
@@ -130,6 +129,16 @@ body {
 
 .like-button:focus {
     outline: none;
+}
+
+.upvote {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.upvote:focus {
+    outline:none;
 }
 
 .card {
@@ -147,6 +156,10 @@ body {
 
 .report-text {
     font-size: 18px;
+}
+
+.likes {
+    margin: .4rem;
 }
 
 /* Home Page*/
