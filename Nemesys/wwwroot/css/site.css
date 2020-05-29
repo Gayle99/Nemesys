@@ -33,7 +33,7 @@ a {
 -------------------------------------------------- */
 html {
     font-size: 14px;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Lato', sans-serif !important;
 }
 
 @media (min-width: 768px) {
@@ -61,13 +61,15 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    font-family: 'Lato', sans-serif !important;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Lato', sans-serif !important;
 }
 .footer {
   position: absolute;
@@ -94,7 +96,6 @@ body {
 .carousel_text {
     background-color: #f2eee4;
     color: black;
-    font-weight: bold;
     padding: .3rem;
 }
 
@@ -193,4 +194,13 @@ select:focus {
 .box {
     width: 35rem!important;
     height: 15rem!important;
+}
+
+.details-text {
+    font-size: 14px;
+    margin: .3rem 0;
+}
+
+.details-description {
+    font-size: 18px;
 }

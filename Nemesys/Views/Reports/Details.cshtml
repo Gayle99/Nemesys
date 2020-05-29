@@ -13,13 +13,12 @@
             <img class="card-img-top card-image" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
             <div class="card-body">
                 <h3 class="card-title">@Model.Report.Title</h3>
-                <p class="sm all report-text">Created By: @Model.Report.CreatedBy.Email</p>
-                <p class="sm all report-text">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all report-text">Status: @Model.Report.Status</p>
-                <p class="sm all report-text">Location: @Model.Report.Location</p>
-                <p class="sm all report-text">Hazard: @Model.Report.TypeOfHazard</p>
-                <p class="sm all report-text">@Model.Report.Description</p>
-                <p class="sm all report-text">Likes: @Model.Upvotes</p>
+                <p class="sm all details-text">Created By: @Model.Report.CreatedBy.Email</p>
+                <p class="sm all details-text">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+                <p class="sm all details-text">Status: @Model.Report.Status</p>
+                <p class="sm all details-text">Location: @Model.Report.Location</p>
+                <p class="sm all details-text">Hazard: @Model.Report.TypeOfHazard</p>
+                <p class="sm all details-text details-description">@Model.Report.Description</p>
                 <a asp-controller="Reports" asp-action="Index" class="btn btn-primary my-2">Back</a>
                 @if (User.Identity.IsAuthenticated)
                 {
@@ -60,9 +59,9 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Current Investigation</h3>
-                    <p class="sm all">Created By: @Model.Investigation.Investigator.Email</p>
-                    <p class="sm all">Date Created: @Model.Investigation.DateOfAction</p>
-                    <p class="sm all">@Model.Investigation.Description</p>
+                    <p class="sm all details-text">Created By: @Model.Investigation.Investigator.Email</p>
+                    <p class="sm all details-text">Date Created: @Model.Investigation.DateOfAction</p>
+                    <p class="sm all details-description">@Model.Investigation.Description</p>
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (UserManager.GetUserAsync(User).Result.Id == Model.Investigation.Investigator.Id)
