@@ -13,30 +13,33 @@
             <img class="card-img-top card-image" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
             <div class="card-body">
                 <h3 class="card-title">@Model.Report.Title</h3>
-                <p class="sm all">Created By: @Model.Report.CreatedBy.Email</p>
-                <p class="sm all">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
-                <p class="sm all">Status: @Model.Report.Status</p>
-                <p class="sm all">Location: @Model.Report.Location</p>
-                <p class="sm all">Hazard: @Model.Report.TypeOfHazard</p>
-                <p class="sm all">@Model.Report.Description</p>
-                <p class="sm all">Likes: @Model.Upvotes</p>
+                <p class="sm all report-text">Created By: @Model.Report.CreatedBy.Email</p>
+                <p class="sm all report-text">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
+                <p class="sm all report-text">Status: @Model.Report.Status</p>
+                <p class="sm all report-text">Location: @Model.Report.Location</p>
+                <p class="sm all report-text">Hazard: @Model.Report.TypeOfHazard</p>
+                <p class="sm all report-text">@Model.Report.Description</p>
+                <p class="sm all report-text">Likes: @Model.Upvotes</p>
                 <a asp-controller="Reports" asp-action="Index" class="btn btn-primary my-2">Back</a>
                 @if (User.Identity.IsAuthenticated)
                 {
                     if (UserManager.GetUserAsync(User).Result.Id == Model.Report.CreatedBy.Id)
                     {
-                        <form asp-controller="Reports" asp-action="EditReport" method="get">
-                            <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                            <button type="submit" class="btn btn-primary my-2">
-                                Edit
-                            </button>
-                        </form>
-                        <form asp-controller="Reports" asp-action="DeleteReport" method="post">
-                            <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
-                            <button type="submit" class="btn btn-primary">
-                                Delete
-                            </button>
-                        </form>
+                        <div class="row">
+                            <form asp-controller="Reports" asp-action="EditReport" method="get">
+                                <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
+                                <button type="submit" class="btn btn-primary ml-3">
+                                    Edit
+                                </button>
+                            </form>
+                            <form asp-controller="Reports" asp-action="DeleteReport" method="post">
+                                <input id="reportId" name="reportId" type="hidden" value="@Model.Report.Id" />
+                                <button type="submit" class="btn btn-primary ml-2">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                        
                     }
                     if (User.IsInRole("Investigator") && Model.Investigation == null)
                     {
@@ -75,7 +78,7 @@
 
                                 <input id="id" name="id" type="hidden" class="form-control" value="@Model.Report.Id" />
                                 <div class="form-group">
-                                    <div class="col-md-5">
+                                    <div class="">
                                         <select id="option" name="option">
                                             <option value="1">Open</option>
                                             <option value="2">Closed</option>
@@ -86,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-5">
+                                    <div class="">
                                         <input type="submit" class="btn btn-primary" value="Change Status" />
                                     </div>
                                 </div>
@@ -94,7 +97,7 @@
                                 }
                                 }
                         </div>
-                
+
             </div>
 
         }

@@ -13,15 +13,20 @@ a {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #35b031 !important;
+    border-color: #35b031 !important;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
 }
 
 /* Sticky footer styles
@@ -76,9 +81,27 @@ body {
     text-align: center !important;
 }
 
+/* Home Page */
+.carousel_img {
+    object-fit: cover;
+    height: 30rem;
+}
+
+.carousel_style {
+    margin: 3rem 0;
+}
+
+.carousel_text {
+    background-color: #f2eee4;
+    color: black;
+    font-weight: bold;
+    padding: .3rem;
+}
+
 /* Reports */
 .reports {
     padding-bottom: 5rem;
+    margin-left: 15px !important;
 }
 
 .like-image {
@@ -122,6 +145,10 @@ body {
     height: 20rem;
 }
 
+.report-text {
+    font-size: 18px;
+}
+
 /* Home Page*/
 .home-container {
     height: 100%;
@@ -134,4 +161,13 @@ body {
 
 #home-jumbatron {
     background-color: #e3f5fc;
+}
+
+/* Details Page*/
+select:focus {
+    outline: none;
+}
+
+#option {
+    padding: .4rem;
 }

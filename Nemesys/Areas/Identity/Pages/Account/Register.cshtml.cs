@@ -46,6 +46,10 @@ namespace Nemesys.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "User name")]
+            public string Username { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
