@@ -171,3 +171,13 @@ select:focus {
 #option {
     padding: .4rem;
 }
+
+/* Hall of Fame */
+.hall-of-fame-card {
+    background-color: #8ff798;
+}
+
+.box {
+    width: 35rem!important;
+    height: 15rem!important;
+}

@@ -2,17 +2,20 @@
 
 @{
     ViewData["Title"] = "Hall of Fame";
+    int count = 1;
 }
+
 
     <div class="home-container">
         <h2 class="header-2">Hall of Fame 2020</h2>
         @foreach (var user in Model.HighestUpvotedReportList)
         {
-            <div class="content">
+            <div class="content hall-of-fame-card">
                 <div class="card card-body col-sm-12 text-center">
-                    <h3 class="card-title">@user.User.Email</h3>
+                    <h3 class="card-title">No. @count: @user.User.UserName</h3>
                     <p class="sm all">Number of reports: @user.Count</p>
                 </div>
             </div>
+            count = count + 1;
         }
     </div>
