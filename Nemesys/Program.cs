@@ -21,29 +21,15 @@ namespace Nemesys
             var host = CreateHostBuilder(args).Build();
             using(var scope = host.Services.CreateScope())
             {
-               // var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
                 var services = scope.ServiceProvider;
-                //try
-                //{
-                    var context = services.GetRequiredService<ApplicationDbContext>();
-                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                var context = services.GetRequiredService<ApplicationDbContext>();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
-                    DbInitalizer.SeedRoles(roleManager);
-                    DbInitalizer.SeedUsers(userManager);
-                    DbInitalizer.SeedData(userManager, context);
-                  //  logger.Debug("init main");
-                    CreateHostBuilder(args).Build().Run();
-                //}
-                //catch(Exception e)
-                //{
-                //    logger.Error(e, "An unexpected error occured during the seeding stage!");
-                //}
-                //}
-                //catch(Exception e)
-                //{
-                    //logging
-                //}
+                DbInitalizer.SeedRoles(roleManager);
+                DbInitalizer.SeedUsers(userManager);
+                DbInitalizer.SeedData(userManager, context);
+                CreateHostBuilder(args).Build().Run();
                 host.Run();
             }
         }
