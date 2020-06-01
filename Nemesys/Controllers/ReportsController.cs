@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nemesys.Models;
 using Nemesys.ViewModels;
@@ -21,14 +22,16 @@ namespace Nemesys.Controllers
         private readonly ReportUpvotedRepository _reportUpvotedRepository;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<ReportsController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public ReportsController(IReportRepository reportRepository, IInvestigationRepository investigationRepository, ReportUpvotedRepository reportUpvotedRepository, UserManager<IdentityUser> userManager, ILogger<ReportsController> logger)
+        public ReportsController(IReportRepository reportRepository, IInvestigationRepository investigationRepository, ReportUpvotedRepository reportUpvotedRepository, UserManager<IdentityUser> userManager, ILogger<ReportsController> logger, IConfiguration configuration)
         {
             _reportRepository = reportRepository;
             _investigationRepository = investigationRepository;
             _reportUpvotedRepository = reportUpvotedRepository;
             _userManager = userManager;
             _logger = logger;
+            _configuration = configuration;
         }
         public IActionResult Index()
         {
@@ -536,7 +539,7 @@ namespace Nemesys.Controllers
 
                                 if (status.Equals("Closed"))
                                 {
-                                    var apiKey = Environment.GetEnvironmentVariable("EMAIL_API_KEY");
+                                    var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
                                     var client = new SendGridClient(apiKey);
                                     var from = new EmailAddress("nemesysgj@gmail.com", "Nemesys");
                                     var subject = report.Title + " - Closed";
