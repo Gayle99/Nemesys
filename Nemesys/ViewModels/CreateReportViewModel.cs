@@ -34,6 +34,7 @@ namespace Nemesys.ViewModels
         [MaxFileSize(6 * 1024 *1024)]
         [AllowedExtensions(new string[] { ".jpg", ".png", ".jpeg"})]
         [Display(Name = "Image to Upload")]
+        [Required]
         public IFormFile ImageToUpload { get; set; }
 
     }

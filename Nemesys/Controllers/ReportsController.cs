@@ -188,7 +188,7 @@ namespace Nemesys.Controllers
         [HttpPost]
         [Authorize(Roles = "Reporter")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditReport(int id, [Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "ImageToUpload", "ImageUrl")] CreateReportViewModel newReport)
+        public async Task<IActionResult> EditReport(int id, [Bind("Title", "Location", "DateSpotted", "TypeOfHazard", "Description", "Status", "ImageToUpload")] CreateReportViewModel newReport)
         {
 
             try
@@ -204,24 +204,6 @@ namespace Nemesys.Controllers
                         //2. Validate model
                         if (ModelState.IsValid)
                         {
-                            if (newReport.ImageToUpload != null)
-                            {
-                                string fileName = "";
-
-                                var extension = "." + newReport.ImageToUpload.FileName.Split('.')[newReport.ImageToUpload.FileName.Split('.').Length - 1];
-                                fileName = Guid.NewGuid().ToString() + extension;
-                                var path = Directory.GetCurrentDirectory() + "\\wwwroot\\images\\reports\\" + fileName;
-                                using (var bits = new FileStream(path, FileMode.Create))
-                                {
-                                    newReport.ImageToUpload.CopyTo(bits);
-                                }
-
-                                newReport.ImageUrl = "/images/reports/" + fileName;
-                            }
-                            else
-                            {
-                                newReport.ImageUrl = existingReport.ImageUrl;
-                            }
 
                             Report report = new Report()
                             {
@@ -229,8 +211,7 @@ namespace Nemesys.Controllers
                                 Title = newReport.Title,
                                 Location = newReport.Location,
                                 TypeOfHazard = newReport.TypeOfHazard,
-                                Description = newReport.Description,
-                                ImageUrl = newReport.ImageUrl
+                                Description = newReport.Description
                             };
 
                             _reportRepository.UpdateReport(report);
