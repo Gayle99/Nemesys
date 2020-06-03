@@ -94,9 +94,12 @@ body {
 }
 
 .carousel_text {
-    background-color: #f2eee4;
     color: black;
     padding: .3rem;
+    background-color: rgba(256,256,256,0.7);
+}
+
+.carousel-caption-background {
 }
 
 /* Reports */
