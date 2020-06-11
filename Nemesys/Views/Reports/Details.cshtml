@@ -13,7 +13,7 @@
             <img class="card-img-top card-image" src="@Model.Report.ImageUrl" alt="Image for @Model.Report.Title" />
             <div class="card-body">
                 <h3 class="card-title">@Model.Report.Title</h3>
-                <p class="sm all details-text">Created By: @Model.Report.CreatedBy.Email</p>
+                <p class="sm all details-text">Created By: @Model.Report.CreatedBy.UserName</p>
                 <p class="sm all details-text">Date Created: @Model.Report.DateOfCreation.ToShortDateString()</p>
                 <p class="sm all details-text">Status: @Model.Report.Status</p>
                 <p class="sm all details-text">Location: @Model.Report.Location</p>
@@ -59,7 +59,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Current Investigation</h3>
-                    <p class="sm all details-text">Created By: @Model.Investigation.Investigator.Email</p>
+                    <p class="sm all details-text">Created By: @Model.Investigation.Investigator.UserName</p>
                     <p class="sm all details-text">Date Created: @Model.Investigation.DateOfAction</p>
                     <p class="sm all details-description">@Model.Investigation.Description</p>
                     @if (User.Identity.IsAuthenticated)
