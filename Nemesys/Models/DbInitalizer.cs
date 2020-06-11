@@ -69,7 +69,7 @@ namespace Nemesys.Models
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
                 };
 
-                IdentityResult result3 = userManager.CreateAsync(reporter3, "T!Vzjg]e").Result;
+                IdentityResult result3 = userManager.CreateAsync(reporter3, "T!V2zjg]e").Result;
                 if (result3.Succeeded)
                 {
                     userManager.AddToRoleAsync(reporter3, "Reporter").Wait();
@@ -135,7 +135,15 @@ namespace Nemesys.Models
             {
                 var reporter = userManager.GetUsersInRoleAsync("Reporter").Result.ElementAtOrDefault(0);
                 var reporter2 = userManager.GetUsersInRoleAsync("Reporter").Result.ElementAtOrDefault(1);
+                if (reporter2 == null)
+                {
+                    reporter2 = reporter;
+                }
                 var reporter3 = userManager.GetUsersInRoleAsync("Reporter").Result.ElementAtOrDefault(2);
+                if (reporter3 == null)
+                {
+                    reporter3 = reporter2;
+                }
                 context.AddRange(
                     new Report()
                     {
